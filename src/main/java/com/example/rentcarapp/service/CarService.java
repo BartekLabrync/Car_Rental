@@ -2,7 +2,7 @@ package com.example.rentcarapp.service;
 
 import com.example.rentcarapp.dto.car.CreateCarRequest;
 import com.example.rentcarapp.models.Car;
-import com.example.rentcarapp.repository.CarRepository;
+import com.example.rentcarapp.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ import java.util.Optional;
 @AllArgsConstructor
 public class CarService {
 
-    private final CarRepository carRepository;
+    private final UserRepository.CarRepository carRepository;
 
     public List<Car> getAllCars() {
         return carRepository.findAll();

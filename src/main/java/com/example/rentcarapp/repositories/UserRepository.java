@@ -1,5 +1,6 @@
 package com.example.rentcarapp.repositories;
 
+import com.example.rentcarapp.models.Car;
 import com.example.rentcarapp.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -8,4 +9,7 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends JpaRepository<User, Long> {
 
     User getUserByLoginOrEmail(String login, String email);
+
+    interface CarRepository extends JpaRepository<Car, Long> {
+    }
 }
