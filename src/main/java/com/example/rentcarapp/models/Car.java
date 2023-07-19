@@ -18,7 +18,6 @@ public class Car {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     private String Brand;
 
     private String Name;
@@ -32,4 +31,8 @@ public class Car {
     private Long Mileage;
 
     private Long Reservation_id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "branch.id")
+    private Branch branchId;
 }

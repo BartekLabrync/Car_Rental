@@ -1,7 +1,7 @@
 package com.example.rentcarapp.services;
 
-import com.example.rentcarapp.dto.CreateUserDto;
-import com.example.rentcarapp.dto.LoginUserDto;
+import com.example.rentcarapp.dto.user.CreateUserDto;
+import com.example.rentcarapp.dto.user.LoginUserDto;
 
 
 public interface UserService {

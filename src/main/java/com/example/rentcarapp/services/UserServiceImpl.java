@@ -1,11 +1,10 @@
 package com.example.rentcarapp.services;
 
-import com.example.rentcarapp.dto.CreateUserDto;
-import com.example.rentcarapp.dto.LoginUserDto;
+import com.example.rentcarapp.dto.user.CreateUserDto;
+import com.example.rentcarapp.dto.user.LoginUserDto;
 import com.example.rentcarapp.models.User;
 import com.example.rentcarapp.repositories.UserRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
