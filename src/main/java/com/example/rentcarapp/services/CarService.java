@@ -1,8 +1,8 @@
-package com.example.rentcarapp.service;
+package com.example.rentcarapp.services;
 
 import com.example.rentcarapp.dto.car.CreateCarRequest;
 import com.example.rentcarapp.models.Car;
-import com.example.rentcarapp.repository.CarRepository;
+import com.example.rentcarapp.repositories.CarRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
