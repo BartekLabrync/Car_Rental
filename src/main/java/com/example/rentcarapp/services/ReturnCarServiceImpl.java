@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class ReturnCarServicesImpl implements ReturnCarServices {
+public class ReturnCarServiceImpl implements ReturnCarService {
     private final ReturnCarRepository returnCarRepository;
 
     @Override
