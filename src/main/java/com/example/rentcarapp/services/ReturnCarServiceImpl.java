@@ -1,6 +1,6 @@
 package com.example.rentcarapp.services;
 
-import com.example.rentcarapp.dto.ReturnCarDto;
+import com.example.rentcarapp.dto.returnCar.ReturnCarDto;
 import com.example.rentcarapp.models.ReturnCar;
 import com.example.rentcarapp.repositories.ReturnCarRepository;
 import lombok.AllArgsConstructor;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class ReturnCarServicesImpl implements ReturnCarServices {
+public class ReturnCarServiceImpl implements ReturnCarService {
     private final ReturnCarRepository returnCarRepository;
 
     @Override

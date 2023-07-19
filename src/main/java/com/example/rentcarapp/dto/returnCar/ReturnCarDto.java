@@ -1,4 +1,4 @@
-package com.example.rentcarapp.dto;
+package com.example.rentcarapp.dto.returnCar;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
