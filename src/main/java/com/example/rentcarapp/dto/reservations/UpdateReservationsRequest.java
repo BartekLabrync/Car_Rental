@@ -1,22 +1,34 @@
 package com.example.rentcarapp.dto.reservations;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class UpdateReservationsRequest {
-    @Id
-    private Long id;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private long id;
 
-    public Long getId() {
-        return id;
-    }
+    private LocalDate reservDate;
+
+    private long clientId;
+
+    private long carId;
+
+    private LocalDate dateFor;
+
+    private LocalDate dateTo;
+
+    private long reservBranchId;
+
+    private long branchReturnId;
+
+    private BigDecimal amount;
+
+    private long parentId;
 }
