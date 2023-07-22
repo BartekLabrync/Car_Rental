@@ -1,23 +1,17 @@
-package com.example.rentcarapp.models;
+package com.example.rentcarapp.dto.reservations;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Entity
-@Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Reservations {
+public class ReservationDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private LocalDate reservDate;
@@ -37,4 +31,5 @@ public class Reservations {
     private BigDecimal amount;
 
     private long parentId;
+
 }

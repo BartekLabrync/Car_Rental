@@ -2,17 +2,19 @@ package com.example.rentcarapp.services;
 
 import com.example.rentcarapp.dto.mainRental.CreateMainRentalRequest;
 import com.example.rentcarapp.repositories.MainRentalRepository;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-@AllArgsConstructor
 public class MainRental {
 
     private final MainRentalRepository mainRentalRepository;
+
+    public MainRental(MainRentalRepository mainRentalRepository) {
+        this.mainRentalRepository = mainRentalRepository;
+    }
 
     public List<com.example.rentcarapp.models.MainRental> getAllMainRentals() {
         return mainRentalRepository.findAll();
