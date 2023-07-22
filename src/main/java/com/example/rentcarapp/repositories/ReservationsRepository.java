@@ -1,9 +1,9 @@
 package com.example.rentcarapp.repositories;
 
-import com.example.rentcarapp.models.ReturnCar;
+import com.example.rentcarapp.models.Reservations;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ReturnCarRepository extends JpaRepository <ReturnCar,Long> {
+public interface ReservationsRepository extends JpaRepository<Reservations, Long> {
 }
