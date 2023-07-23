@@ -45,20 +45,20 @@ public class RentCarServiceImpl implements RentCarService{
     public RentCar fromConvertToModel(CreateRentCarRequest dto){
         RentCar model = RentCar.builder()
                 .id(dto.getId())
-                .employee(dto.getEmployee())
+                .employee(userRepository.getReferenceById(dto.getEmployee()))
                 .rentalDate(dto.getRentalDate())
                 .comments(dto.getComments())
-                .reservationId(dto.getReservationId())
+                .reservation(reservationsRepository.getReferenceById(dto.getReservationId()))
                 .build();
         return model;
     }
     public RentCar convertToModel(UpdateRentCarRequest dto){
         RentCar model = RentCar.builder()
                 .id(dto.getId())
-                .employee(dto.getEmployee())
+                .employee(userRepository.getReferenceById(dto.getEmployee()))
                 .rentalDate(dto.getRentalDate())
                 .comments(dto.getComments())
-                .reservationId(dto.getReservationId())
+                .reservation(reservationsRepository.getReferenceById(dto.getReservationId()))
                 .build();
         return model;
     }
