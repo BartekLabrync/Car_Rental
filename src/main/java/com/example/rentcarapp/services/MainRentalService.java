@@ -27,14 +27,6 @@ public class MainRentalService {
     }
 
     public Optional<MainRental> getMainRentalsById(Long id) {
-
-    
-
-    public List<com.example.rentcarapp.models.MainRental> getAllMainRentals() {
-        return mainRentalRepository.findAll();
-    }
-
-    public Optional<com.example.rentcarapp.models.MainRental> getMainRentalsById(Long id) {
         return mainRentalRepository.findById(id);
     }
 
