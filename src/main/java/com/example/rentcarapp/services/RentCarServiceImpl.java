@@ -1,6 +1,8 @@
 package com.example.rentcarapp.services;
 
+import com.example.rentcarapp.dto.rentCar.CreateRentCarRequest;
 import com.example.rentcarapp.dto.rentCar.RentCarDto;
+import com.example.rentcarapp.dto.rentCar.UpdateRentCarRequest;
 import com.example.rentcarapp.models.RentCar;
 import com.example.rentcarapp.repositories.RentCarRepository;
 import lombok.AllArgsConstructor;
@@ -36,16 +38,35 @@ public class RentCarServiceImpl implements RentCarService{
         return model;
     }
 
-    @Override
-    public  RentCarDto create(RentCarDto dto) {
-        var model = toModel(dto);
-        return toDto(rentCarRepository.save(model));
-
+    public RentCar fromConvertToModel(CreateRentCarRequest dto){
+        RentCar model = RentCar.builder()
+                .id(dto.getId())
+                .employee(dto.getEmployee())
+                .rentalDate(dto.getRentalDate())
+                .comments(dto.getComments())
+                .reservationId(dto.getReservationId())
+                .build();
+        return model;
+    }
+    public RentCar convertToModel(UpdateRentCarRequest dto){
+        RentCar model = RentCar.builder()
+                .id(dto.getId())
+                .employee(dto.getEmployee())
+                .rentalDate(dto.getRentalDate())
+                .comments(dto.getComments())
+                .reservationId(dto.getReservationId())
+                .build();
+        return model;
     }
 
     @Override
-    public RentCarDto update(RentCarDto dto) {
-        var model = toModel(dto);
+    public  RentCarDto create(RentCar model) {
+        return toDto(rentCarRepository.save(model));
+    }
+
+    @Override
+    public RentCarDto update(UpdateRentCarRequest dto) {
+        var model = convertToModel(dto);
         return toDto(rentCarRepository.save(model));
     }
 
@@ -58,9 +79,8 @@ public class RentCarServiceImpl implements RentCarService{
     }
 
     @Override
-    public void delete(RentCarDto dto) {
-        var model = toModel(dto);
-        rentCarRepository.delete(model);
+    public void delete(long id) {
+        rentCarRepository.deleteById(id);
 
     }
 
