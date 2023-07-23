@@ -43,5 +43,10 @@ public class RentCarController {
         RentCarDto rentCarDto = rentCarService.create(rentCar);
         return ResponseEntity.ok(rentCarDto);
     }
+    @DeleteMapping("{id}")
+    public ResponseEntity deleteRentCar (@PathVariable long id){
+        rentCarService.delete(id);
+        return ResponseEntity.ok().build();
+    }
 
 }
