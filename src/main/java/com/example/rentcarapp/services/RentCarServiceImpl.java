@@ -6,16 +6,15 @@ import com.example.rentcarapp.repositories.RentCarRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @AllArgsConstructor
 public class RentCarServiceImpl implements RentCarService{
     private final RentCarRepository rentCarRepository;
 
-    @Override
-    public void rentCar(RentCarDto dto) {
-        var model = toModel(dto);
-        rentCarRepository.save(model);
-    }
+
     private RentCarDto toDto (RentCar model){
         RentCarDto dto = RentCarDto.builder()
                 .id(model.getId())
@@ -37,4 +36,40 @@ public class RentCarServiceImpl implements RentCarService{
         return model;
     }
 
+    @Override
+    public  RentCarDto create(RentCarDto dto) {
+        var model = toModel(dto);
+        return toDto(rentCarRepository.save(model));
+
+    }
+
+    @Override
+    public RentCarDto update(RentCarDto dto) {
+        var model = toModel(dto);
+        return toDto(rentCarRepository.save(model));
+    }
+
+    @Override
+    public RentCarDto read(long id) {
+        return rentCarRepository
+                .findById(id)
+                .map(this::toDto)
+                .orElseThrow(() -> new RuntimeException("Not found"));
+    }
+
+    @Override
+    public void delete(RentCarDto dto) {
+        var model = toModel(dto);
+        rentCarRepository.delete(model);
+
+    }
+
+    @Override
+    public List<RentCarDto> readAll() {
+        return rentCarRepository
+                .findAll()
+                .stream()
+                .map(this::toDto)
+                .collect(Collectors.toList());
+    }
 }
