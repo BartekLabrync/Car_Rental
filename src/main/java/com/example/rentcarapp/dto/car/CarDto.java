@@ -1,5 +1,6 @@
 package com.example.rentcarapp.dto.car;
 
+import com.example.rentcarapp.models.Reservations;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,6 +17,6 @@ public class CarDto {
     private Long Year;
     private String Color;
     private Long Mileage;
-    private Long Reservation_id;
+    private Long reservation_id;
 
 }

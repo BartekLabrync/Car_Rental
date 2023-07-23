@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class ReturnCarDto {
     private long id;
-    private String employee;
+    private long employee;
     private LocalDate dateOfReturn;
     private String additionalFees;
     private String comments;

@@ -22,17 +22,21 @@ public class Reservations {
 
     private LocalDate reservDate;
 
-    private long clientId;
+    @OneToOne
+    private User client;
 
-    private long carId;
+    @OneToOne
+    private RentCar car;
 
     private LocalDate dateFor;
 
     private LocalDate dateTo;
 
-    private long reservBranchId;
+    @OneToOne
+    private Branch reservBranch;
 
-    private long branchReturnId;
+    @OneToOne
+    private Branch branchReturn;
 
     private BigDecimal amount;
 

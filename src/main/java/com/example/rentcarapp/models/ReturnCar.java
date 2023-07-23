@@ -17,10 +17,12 @@ public class ReturnCar {
      @Id
      @GeneratedValue(strategy = GenerationType.IDENTITY)
      private long id;
-     private String employee;
+     @OneToOne
+     private User employee;
      private LocalDate dateOfReturn;
      private String additionalFees;
      private String comments;
-     private long reservationId;
+     @OneToOne
+     private Reservations reservation;
 
 }

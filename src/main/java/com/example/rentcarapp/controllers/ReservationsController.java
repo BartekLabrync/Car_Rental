@@ -22,6 +22,7 @@ public class ReservationsController {
 
     @GetMapping("{id}")
     public ResponseEntity<ReservationDto> getReservationById(@PathVariable long id) {
+
         ReservationDto reservationById = reservationsService.getReservationsById(id);
         return ResponseEntity.ok(reservationById);
 
@@ -29,6 +30,7 @@ public class ReservationsController {
 
     @GetMapping
     public ResponseEntity<List<ReservationDto>> getAllReservations() {
+
         List<ReservationDto> reservations = reservationsService.getAllReservations();
         return ResponseEntity.ok(reservations);
 

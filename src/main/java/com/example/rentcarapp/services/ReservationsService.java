@@ -5,20 +5,25 @@ import com.example.rentcarapp.dto.reservations.ReservationDto;
 import com.example.rentcarapp.dto.reservations.UpdateReservationsRequest;
 import com.example.rentcarapp.exception.ReservationNotFoundException;
 import com.example.rentcarapp.models.Reservations;
+import com.example.rentcarapp.repositories.BranchRepository;
+import com.example.rentcarapp.repositories.RentCarRepository;
 import com.example.rentcarapp.repositories.ReservationsRepository;
+import com.example.rentcarapp.repositories.UserRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class ReservationsService {
 
     private final ReservationsRepository reservationsRepository;
+    private final UserRepository userRepository;
+    private final RentCarRepository rentCarRepository;
+    private final BranchRepository branchRepository;
 
-    public ReservationsService(ReservationsRepository reservationsRepository) {
-        this.reservationsRepository = reservationsRepository;
-    }
 
     public List<ReservationDto> getAllReservations() {
         return reservationsRepository.findAll()
@@ -56,12 +61,12 @@ public class ReservationsService {
         ReservationDto dto = new ReservationDto();
         dto.setId(reservations.getId());
         dto.setReservDate(reservations.getReservDate());
-        dto.setClientId(reservations.getClientId());
-        dto.setCarId(reservations.getCarId());
+        dto.setClientId(reservations.getClient().getId());
+        dto.setCarId(reservations.getCar().getId());
         dto.setDateFor(reservations.getDateFor());
         dto.setDateTo(reservations.getDateTo());
-        dto.setReservBranchId(reservations.getReservBranchId());
-        dto.setBranchReturnId(reservations.getBranchReturnId());
+        dto.setReservBranchId(reservations.getReservBranch().getId());
+        dto.setBranchReturnId(reservations.getBranchReturn().getId());
         dto.setAmount(reservations.getAmount());
         dto.setParentId(reservations.getParentId());
         return dto;
@@ -71,12 +76,12 @@ public class ReservationsService {
         Reservations reservations = new Reservations();
         reservations.setId(dto.getId());
         reservations.setReservDate(dto.getReservDate());
-        reservations.setClientId(dto.getClientId());
-        reservations.setCarId(dto.getCarId());
+        reservations.setClient(userRepository.getReferenceById(dto.getClientId()));
+        reservations.setCar(rentCarRepository.getReferenceById(dto.getCarId()));
         reservations.setDateFor(dto.getDateFor());
         reservations.setDateTo(dto.getDateTo());
-        reservations.setReservBranchId(dto.getReservBranchId());
-        reservations.setBranchReturnId(dto.getBranchReturnId());
+        reservations.setReservBranch(branchRepository.getReferenceById(dto.getReservBranchId()));
+        reservations.setBranchReturn(branchRepository.getReferenceById(dto.getReservBranchId()));
         reservations.setAmount(dto.getAmount());
         reservations.setParentId(dto.getParentId());
         return reservations;
@@ -86,12 +91,12 @@ public class ReservationsService {
         Reservations reservations = new Reservations();
         reservations.setId(dto.getId());
         reservations.setReservDate(dto.getReservDate());
-        reservations.setClientId(dto.getClientId());
-        reservations.setCarId(dto.getCarId());
+        reservations.setClient(userRepository.getReferenceById(dto.getClientId()));
+        reservations.setCar(rentCarRepository.getReferenceById(dto.getCarId()));
         reservations.setDateFor(dto.getDateFor());
         reservations.setDateTo(dto.getDateTo());
-        reservations.setReservBranchId(dto.getReservBranchId());
-        reservations.setBranchReturnId(dto.getBranchReturnId());
+        reservations.setReservBranch(branchRepository.getReferenceById(dto.getReservBranchId()));
+        reservations.setBranchReturn(branchRepository.getReferenceById(dto.getReservBranchId()));
         reservations.setAmount(dto.getAmount());
         reservations.setParentId(dto.getParentId());
         return reservations;
@@ -101,12 +106,12 @@ public class ReservationsService {
         Reservations reservations = new Reservations();
         reservations.setId(dto.getId());
         reservations.setReservDate(dto.getReservDate());
-        reservations.setClientId(dto.getClientId());
-        reservations.setCarId(dto.getCarId());
+        reservations.setClient(userRepository.getReferenceById(dto.getClientId()));
+        reservations.setCar(rentCarRepository.getReferenceById(dto.getCarId()));
         reservations.setDateFor(dto.getDateFor());
         reservations.setDateTo(dto.getDateTo());
-        reservations.setReservBranchId(dto.getReservBranchId());
-        reservations.setBranchReturnId(dto.getBranchReturnId());
+        reservations.setReservBranch(branchRepository.getReferenceById(dto.getReservBranchId()));
+        reservations.setBranchReturn(branchRepository.getReferenceById(dto.getReservBranchId()));
         reservations.setAmount(dto.getAmount());
         reservations.setParentId(dto.getParentId());
         return reservations;
