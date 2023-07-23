@@ -31,7 +31,8 @@ public class Car {
 
     private Long Mileage;
 
-    private Long Reservation_id;
+    @OneToOne
+    private Reservations reservation;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "branch.id")

@@ -1,4 +1,4 @@
-package com.example.rentcarapp.controller;
+package com.example.rentcarapp.controllers;
 
 import com.example.rentcarapp.dto.reservations.ReservationDto;
 import com.example.rentcarapp.services.ReservationsService;

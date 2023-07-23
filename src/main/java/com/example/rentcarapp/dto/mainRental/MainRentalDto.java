@@ -11,8 +11,8 @@ public class MainRentalDto {
 
     private Long id;
     private String name;
-    private String Contact_Address;
+    private long Contact_Address;
     private String Owner;
     private String Logo;
-    private String Branch_List;
+    //private String Branch_List;
 }

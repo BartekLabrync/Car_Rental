@@ -17,13 +17,18 @@ public class Branch {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String address;
+
+    @OneToOne
+    private Address address;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "branchId")
     private List<User> staffList;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "branchId")
     private List<Car>  listOfCurrentlyAvailCars;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private MainRental mainRental;
 
     //???private long reservationId;
 }

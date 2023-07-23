@@ -24,7 +24,6 @@ public class User {
     private String password;
     private String email;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "branch.id")
     private Branch branchId;
     //private long addressId;
     //private String role;

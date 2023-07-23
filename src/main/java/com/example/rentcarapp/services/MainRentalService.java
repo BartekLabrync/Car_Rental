@@ -1,6 +1,8 @@
 package com.example.rentcarapp.services;
 
 import com.example.rentcarapp.dto.mainRental.CreateMainRentalRequest;
+import com.example.rentcarapp.models.MainRental;
+import com.example.rentcarapp.repositories.AddressRepository;
 import com.example.rentcarapp.repositories.MainRentalRepository;
 import org.springframework.stereotype.Service;
 
@@ -8,12 +10,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class MainRental {
+public class MainRentalService {
 
     private final MainRentalRepository mainRentalRepository;
+    private final AddressRepository addressRepository;
 
-    public MainRental(MainRentalRepository mainRentalRepository) {
+    public MainRentalService(MainRentalRepository mainRentalRepository, AddressRepository addressRepository) {
         this.mainRentalRepository = mainRentalRepository;
+        this.addressRepository = addressRepository;
     }
 
     public List<com.example.rentcarapp.models.MainRental> getAllMainRentals() {
@@ -32,14 +36,14 @@ public class MainRental {
         mainRentalRepository.deleteById(id);
     }
 
-    private com.example.rentcarapp.models.MainRental toModel (CreateMainRentalRequest dto){
-        return com.example.rentcarapp.models.MainRental
+    private MainRental toModel (CreateMainRentalRequest dto){
+        return MainRental
                 .builder()
                 .Name(dto.getName())
-                .Contact_Address(dto.getContact_Address())
+                .Contact_Address(addressRepository.getReferenceById(dto.getContact_Address()))
                 .Owner(dto.getOwner())
                 .Logo(dto.getLogo())
-                .Branch_List(dto.getBranch_List())
+                //.branch_List(dto.getBranch_List())
                 .build();
     }
 

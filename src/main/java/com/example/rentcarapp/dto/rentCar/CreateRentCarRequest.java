@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class CreateRentCarRequest {
     private long id;
-    private String employee;
+    private long employee;
     private LocalDate rentalDate;
     private String comments;
     private long reservationId;
