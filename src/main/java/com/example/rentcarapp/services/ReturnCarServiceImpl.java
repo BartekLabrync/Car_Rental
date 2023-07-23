@@ -6,16 +6,13 @@ import com.example.rentcarapp.repositories.ReturnCarRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class ReturnCarServiceImpl implements ReturnCarService {
     private final ReturnCarRepository returnCarRepository;
 
-    @Override
-    public void returnCar(ReturnCarDto dto) {
-        var model = toModel(dto);
-        returnCarRepository.save(model);
-    }
     private ReturnCarDto toDto(ReturnCar model){
         ReturnCarDto dto = ReturnCarDto.builder()
                 .id(model.getId())
@@ -38,4 +35,37 @@ public class ReturnCarServiceImpl implements ReturnCarService {
                 .build();
         return model;
     }
+    @Override
+    public void returnCar(ReturnCarDto dto) {
+        var model = toModel(dto);
+        returnCarRepository.save(model);
+    }
+
+    @Override
+    public ReturnCarDto create(ReturnCarDto dto) {
+        var model = toModel(dto);
+        return toDto(returnCarRepository.save(model));
+    }
+
+    @Override
+    public ReturnCarDto update(ReturnCarDto dto) {
+        return null;
+    }
+
+    @Override
+    public ReturnCarDto read(long id) {
+        return null;
+    }
+
+    @Override
+    public void delete(ReturnCarDto dto) {
+
+    }
+
+    @Override
+    public List<ReturnCarDto> readAll() {
+        return null;
+    }
+
+
 }
