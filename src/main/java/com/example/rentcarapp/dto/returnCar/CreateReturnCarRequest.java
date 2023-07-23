@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class CreateReturnCarRequest {
     private long id;
-    private String employee;
+    private long employee;
     private LocalDate dateOfReturn;
     private String additionalFees;
     private String comments;

@@ -5,6 +5,7 @@ import com.example.rentcarapp.dto.car.CreateCarRequest;
 import com.example.rentcarapp.dto.car.UpdateCarRequest;
 import com.example.rentcarapp.models.Car;
 import com.example.rentcarapp.repositories.CarRepository;
+import com.example.rentcarapp.repositories.ReservationsRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,9 +15,11 @@ import java.util.stream.Collectors;
 public class CarService {
 
     private final CarRepository carRepository;
+    private final ReservationsRepository reservationsRepository;
 
-    public CarService(CarRepository carRepository) {
+    public CarService(CarRepository carRepository, ReservationsRepository reservationsRepository) {
         this.carRepository = carRepository;
+        this.reservationsRepository = reservationsRepository;
     }
 
     public List<CarDto> getAllCars() {
@@ -57,7 +60,8 @@ public class CarService {
         dto.setYear(car.getYear());
         dto.setColor(car.getColor());
         dto.setMileage(car.getMileage());
-        dto.setReservation_id(car.getReservation_id());
+        //dto.setReservation_id(car.getReservation_id());
+        dto.setReservation_id(car.getReservation().getId());
         return dto;
     }
 
@@ -70,7 +74,7 @@ public class CarService {
         car.setYear(dto.getYear());
         car.setColor(dto.getColor());
         car.setMileage(dto.getMileage());
-        car.setReservation_id(dto.getReservation_id());
+        car.setReservation(reservationsRepository.getReferenceById(dto.getReservation_id()));
         return car;
     }
 
@@ -83,7 +87,7 @@ public class CarService {
         car.setYear(dto.getYear());
         car.setColor(dto.getColor());
         car.setMileage(dto.getMileage());
-        car.setReservation_id(dto.getReservation_id());
+        car.setReservation(reservationsRepository.getReferenceById(dto.getReservation_id()));
         return car;
     }
 
@@ -96,7 +100,7 @@ public class CarService {
         car.setYear(dto.getYear());
         car.setColor(dto.getColor());
         car.setMileage(dto.getMileage());
-        car.setReservation_id(dto.getReservation_id());
+        car.setReservation(reservationsRepository.getReferenceById(dto.getReservation_id()));
         return car;
     }
 

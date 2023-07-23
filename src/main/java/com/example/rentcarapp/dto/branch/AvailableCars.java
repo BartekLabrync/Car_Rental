@@ -9,6 +9,6 @@ import java.util.List;
 public class AvailableCars {
 
     private long id;
-    private String address;
+    private long address;
     private List<Car>  listOfCurrentlyAvailCars;
 }

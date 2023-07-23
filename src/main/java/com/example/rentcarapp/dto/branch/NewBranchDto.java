@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class NewBranchDto {
 
-    private String address;
+    private long address;
 }

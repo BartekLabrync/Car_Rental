@@ -3,6 +3,8 @@ package com.example.rentcarapp.services;
 import com.example.rentcarapp.dto.rentCar.RentCarDto;
 import com.example.rentcarapp.models.RentCar;
 import com.example.rentcarapp.repositories.RentCarRepository;
+import com.example.rentcarapp.repositories.ReservationsRepository;
+import com.example.rentcarapp.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,25 +15,27 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class RentCarServiceImpl implements RentCarService{
     private final RentCarRepository rentCarRepository;
+    private final UserRepository userRepository;
+    private final ReservationsRepository reservationsRepository;
 
 
     private RentCarDto toDto (RentCar model){
         RentCarDto dto = RentCarDto.builder()
                 .id(model.getId())
-                .employee(model.getEmployee())
+                .employee(model.getEmployee().getId())
                 .rentalDate(model.getRentalDate())
                 .comments(model.getComments())
-                .reservationId(model.getReservationId())
+                .reservationId(model.getReservation().getId())
                 .build();
         return dto;
     }
     private RentCar toModel (RentCarDto dto){
         RentCar model = RentCar.builder()
                 .id(dto.getId())
-                .employee(dto.getEmployee())
+                .employee(userRepository.getReferenceById(dto.getEmployee()))
                 .rentalDate(dto.getRentalDate())
                 .comments(dto.getComments())
-                .reservationId(dto.getReservationId())
+                .reservation(reservationsRepository.getReferenceById(dto.getReservationId()))
                 .build();
         return model;
     }

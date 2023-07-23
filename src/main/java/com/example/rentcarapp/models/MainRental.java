@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @Builder
@@ -18,8 +20,10 @@ public class MainRental {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String Name;
-    private String Contact_Address;
+    @OneToOne
+    private Address Contact_Address;
     private String Owner;
     private String Logo;
-    private String Branch_List;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "mainRental")
+    private List<Branch> branch_List;
 }

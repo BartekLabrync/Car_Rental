@@ -18,9 +18,11 @@ public class RentCar {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String employee;
+    @OneToOne
+    private User employee;
     private LocalDate rentalDate;
     private String comments;
-    private long reservationId;
+    @OneToOne
+    private Reservations reservation;
 
 }
