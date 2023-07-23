@@ -1,26 +1,28 @@
 package com.example.rentcarapp.services;
 
 import com.example.rentcarapp.dto.mainRental.CreateMainRentalRequest;
+import com.example.rentcarapp.models.MainRental;
 import com.example.rentcarapp.repositories.MainRentalRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
-public class MainRental {
+public class MainRentalService {
 
     private final MainRentalRepository mainRentalRepository;
 
-    public MainRental(MainRentalRepository mainRentalRepository) {
+    public MainRentalService(MainRentalRepository mainRentalRepository) {
         this.mainRentalRepository = mainRentalRepository;
     }
 
-    public List<com.example.rentcarapp.models.MainRental> getAllMainRentals() {
+    public List<MainRental> getAllMainRentals() {
         return mainRentalRepository.findAll();
     }
 
-    public Optional<com.example.rentcarapp.models.MainRental> getMainRentalsById(Long id) {
+    public Optional<MainRental> getMainRentalsById(Long id) {
         return mainRentalRepository.findById(id);
     }
 
@@ -32,7 +34,7 @@ public class MainRental {
         mainRentalRepository.deleteById(id);
     }
 
-    private com.example.rentcarapp.models.MainRental toModel (CreateMainRentalRequest dto){
+    private MainRental toModel (CreateMainRentalRequest dto){
         return com.example.rentcarapp.models.MainRental
                 .builder()
                 .Name(dto.getName())

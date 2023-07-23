@@ -3,6 +3,7 @@ package com.example.rentcarapp.services;
 import com.example.rentcarapp.dto.reservations.CreateReservationsRequest;
 import com.example.rentcarapp.dto.reservations.ReservationDto;
 import com.example.rentcarapp.dto.reservations.UpdateReservationsRequest;
+import com.example.rentcarapp.exception.ReservationNotFoundException;
 import com.example.rentcarapp.models.Reservations;
 import com.example.rentcarapp.repositories.ReservationsRepository;
 import org.springframework.stereotype.Service;
@@ -29,23 +30,24 @@ public class ReservationsService {
     public ReservationDto getReservationsById(Long id) {
         return reservationsRepository.findById(id)
                 .map(this::convertToDto)
-                .orElseThrow(() -> new RuntimeException("not found"));
+                .orElseThrow(() -> new ReservationNotFoundException("not found"));
 
     }
 
-    public ReservationDto createReservation (CreateReservationsRequest createReservationsRequest) {
-        Reservations reservations = this.fromConvertToEntity(createReservationsRequest);
+    public ReservationDto createReservation (Reservations reservations) {
         reservations = reservationsRepository.save(reservations);
         return this.convertToDto(reservations);
     }
 
-    public ReservationDto updateReservation (UpdateReservationsRequest updateReservationsRequest) {
+
+    public ReservationDto updateReservation (long id, UpdateReservationsRequest updateReservationsRequest) {
         Reservations reservations = this.convertToEntity(updateReservationsRequest);
         reservations = reservationsRepository.save(reservations);
         return this.convertToDto(reservations);
     }
 
     public void deleteReservation (Long id) {
+        getReservationsById(id);
         reservationsRepository.deleteById(id);
     }
 
