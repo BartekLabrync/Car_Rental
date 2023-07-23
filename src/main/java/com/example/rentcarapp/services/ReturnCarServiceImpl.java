@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -54,22 +55,32 @@ public class ReturnCarServiceImpl implements ReturnCarService {
 
     @Override
     public ReturnCarDto update(ReturnCarDto dto) {
-        return null;
+        var model = toModel(dto);
+        return toDto(returnCarRepository.save(model));
     }
 
     @Override
     public ReturnCarDto read(long id) {
-        return null;
+        return returnCarRepository
+                .findById(id)
+                .map(this::toDto)
+                .orElseThrow(() -> new RuntimeException("Not found"));
     }
 
     @Override
     public void delete(ReturnCarDto dto) {
+        var model = toModel(dto);
+        returnCarRepository.delete(model);
 
     }
 
     @Override
     public List<ReturnCarDto> readAll() {
-        return null;
+        return returnCarRepository
+                .findAll()
+                .stream()
+                .map(this::toDto)
+                .collect(Collectors.toList());
     }
 
 
