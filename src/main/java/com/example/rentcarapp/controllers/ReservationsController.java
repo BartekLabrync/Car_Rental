@@ -3,7 +3,6 @@ package com.example.rentcarapp.controllers;
 import com.example.rentcarapp.dto.reservations.CreateReservationsRequest;
 import com.example.rentcarapp.dto.reservations.ReservationDto;
 import com.example.rentcarapp.dto.reservations.UpdateReservationsRequest;
-import com.example.rentcarapp.models.Reservations;
 import com.example.rentcarapp.services.ReservationsService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -44,11 +43,9 @@ public class ReservationsController {
 
     @PostMapping
     public ResponseEntity<ReservationDto> createReservation (@RequestBody CreateReservationsRequest createReservationsRequest) {
-        Reservations reservations = reservationsService.fromConvertToEntity(createReservationsRequest);
-        ReservationDto reservationDto = reservationsService.createReservation(reservations);
+        ReservationDto reservationDto = reservationsService.createReservation(createReservationsRequest);
         return ResponseEntity.ok(reservationDto);
     }
-
 
     @DeleteMapping("{id}")
     public ResponseEntity deleteReservation (@PathVariable long id) {

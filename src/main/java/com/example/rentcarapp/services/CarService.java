@@ -41,13 +41,14 @@ public class CarService {
         return this.convertToDto(car);
     }
 
-    public CarDto updateCar (UpdateCarRequest updateCarRequest) {
+    public CarDto updateCar (long id, UpdateCarRequest updateCarRequest) {
         Car car = this.convertToEntity(updateCarRequest);
         car = carRepository.save(car);
         return this.convertToDto(car);
     }
 
     public void deleteCar(Long id) {
+        getCarById(id);
         carRepository.deleteById(id);
     }
 

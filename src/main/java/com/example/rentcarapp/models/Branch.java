@@ -30,5 +30,5 @@ public class Branch {
     @ManyToOne(fetch = FetchType.LAZY)
     private MainRental mainRental;
 
-    //???private long reservationId;
+    private long reservationId;
 }

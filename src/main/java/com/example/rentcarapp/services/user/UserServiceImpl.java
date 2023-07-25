@@ -1,4 +1,4 @@
-package com.example.rentcarapp.services;
+package com.example.rentcarapp.services.user;
 
 import com.example.rentcarapp.dto.user.CreateUserDto;
 import com.example.rentcarapp.dto.user.LoginUserDto;

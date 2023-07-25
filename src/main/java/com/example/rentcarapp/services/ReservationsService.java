@@ -39,10 +39,13 @@ public class ReservationsService {
 
     }
 
-    public ReservationDto createReservation (Reservations reservations) {
+    public ReservationDto createReservation (CreateReservationsRequest createReservationsRequest) {
+        Reservations reservations = fromConvertToEntity(createReservationsRequest);
         reservations = reservationsRepository.save(reservations);
-        return this.convertToDto(reservations);
+        return convertToDto(reservations);
     }
+
+
 
 
     public ReservationDto updateReservation (long id, UpdateReservationsRequest updateReservationsRequest) {
