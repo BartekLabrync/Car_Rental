@@ -33,7 +33,7 @@ public class DataInit {
                 .dateFor(LocalDate.now())
                 .dateTo(LocalDate.now())
                 .build();
-        //reservationsRepository.save(reservation);
+        reservationsRepository.save(reservation);
     }
 
 
