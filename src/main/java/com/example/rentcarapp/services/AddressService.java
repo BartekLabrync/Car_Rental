@@ -2,15 +2,16 @@ package com.example.rentcarapp.services;
 
 import com.example.rentcarapp.dto.address.AddressDto;
 import com.example.rentcarapp.dto.address.CreateAddressRequest;
+import com.example.rentcarapp.dto.address.UpdateAddressRequest;
 
 import java.util.List;
 
 public interface AddressService {
 
-    AddressDto create(AddressDto dto);
-    AddressDto update(AddressDto dto);
+    AddressDto create(CreateAddressRequest dto);
+    AddressDto update(UpdateAddressRequest dto);
     AddressDto read(long id);
-    void delete(AddressDto dto);
+    void delete(long id);
     List<AddressDto> readAll();
 
 

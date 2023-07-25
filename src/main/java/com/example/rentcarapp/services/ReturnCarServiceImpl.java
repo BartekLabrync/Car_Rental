@@ -1,8 +1,9 @@
 package com.example.rentcarapp.services;
 
+import com.example.rentcarapp.dto.returnCar.CreateReturnCarRequest;
 import com.example.rentcarapp.dto.returnCar.ReturnCarDto;
+import com.example.rentcarapp.dto.returnCar.UpdateReturnCarRequest;
 import com.example.rentcarapp.models.ReturnCar;
-import com.example.rentcarapp.repositories.RentCarRepository;
 import com.example.rentcarapp.repositories.ReservationsRepository;
 import com.example.rentcarapp.repositories.ReturnCarRepository;
 import com.example.rentcarapp.repositories.UserRepository;
@@ -41,20 +42,47 @@ public class ReturnCarServiceImpl implements ReturnCarService {
                 .build();
         return model;
     }
+
+
     @Override
     public void returnCar(ReturnCarDto dto) {
         var model = toModel(dto);
         returnCarRepository.save(model);
     }
 
-    @Override
-    public ReturnCarDto create(ReturnCarDto dto) {
-        var model = toModel(dto);
-        return toDto(returnCarRepository.save(model));
+
+    public ReturnCar toModel(CreateReturnCarRequest dto){
+        ReturnCar model = ReturnCar.builder()
+                .id(dto.getId())
+                .additionalFees(dto.getAdditionalFees())
+                .dateOfReturn(dto.getDateOfReturn())
+                .employee(userRepository.getReferenceById(dto.getEmployee()))
+                .reservation(reservationsRepository.getReferenceById(dto.getReservationId()))
+                .comments(dto.getComments())
+                .build();
+        return model;
+    }
+
+    public ReturnCar toModel(UpdateReturnCarRequest dto){
+        ReturnCar model = ReturnCar.builder()
+                .id(dto.getId())
+                .additionalFees(dto.getAdditionalFees())
+                .dateOfReturn(dto.getDateOfReturn())
+                .employee(userRepository.getReferenceById(dto.getEmployee()))
+                .reservation(reservationsRepository.getReferenceById(dto.getReservationId()))
+                .comments(dto.getComments())
+                .build();
+        return model;
     }
 
     @Override
-    public ReturnCarDto update(ReturnCarDto dto) {
+    public ReturnCarDto create(CreateReturnCarRequest dto) {
+        return toDto(returnCarRepository.save(toModel(dto)));
+    }
+
+
+    @Override
+    public ReturnCarDto update(UpdateReturnCarRequest dto) {
         var model = toModel(dto);
         return toDto(returnCarRepository.save(model));
     }
@@ -68,11 +96,10 @@ public class ReturnCarServiceImpl implements ReturnCarService {
     }
 
     @Override
-    public void delete(ReturnCarDto dto) {
-        var model = toModel(dto);
-        returnCarRepository.delete(model);
-
+    public void delete(long id) {
+        returnCarRepository.deleteById(id);
     }
+
 
     @Override
     public List<ReturnCarDto> readAll() {

@@ -5,6 +5,7 @@ import com.example.rentcarapp.dto.rentCar.CreateRentCarRequest;
 import com.example.rentcarapp.dto.rentCar.RentCarDto;
 import com.example.rentcarapp.dto.rentCar.UpdateRentCarRequest;
 import com.example.rentcarapp.models.RentCar;
+import com.example.rentcarapp.services.AddressService;
 import com.example.rentcarapp.services.RentCarService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -39,12 +40,17 @@ public class RentCarController {
     }
     @PostMapping
     public ResponseEntity<RentCarDto> createRentCar (@RequestBody CreateRentCarRequest createRentCarRequest){
-        RentCar rentCar = rentCarService.fromConvertToModel(createRentCarRequest);
-        RentCarDto rentCarDto = rentCarService.create(rentCar);
+        RentCarDto rentCarDto = rentCarService.create(createRentCarRequest);
         return ResponseEntity.ok(rentCarDto);
     }
     @DeleteMapping("{id}")
     public ResponseEntity deleteRentCar (@PathVariable long id){
+        rentCarService.delete(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity deleteRentCar(@PathVariable long id){
         rentCarService.delete(id);
         return ResponseEntity.ok().build();
     }

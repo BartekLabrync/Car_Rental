@@ -9,9 +9,7 @@ import com.example.rentcarapp.models.RentCar;
 import java.util.List;
 
 public interface RentCarService {
-    RentCar fromConvertToModel(CreateRentCarRequest dto);
-    public RentCar convertToModel(UpdateRentCarRequest dto);
-    RentCarDto create(RentCar model);
+    RentCarDto create(CreateRentCarRequest dto);
     RentCarDto update(UpdateRentCarRequest dto);
     RentCarDto read(long id);
     void delete(long id);
