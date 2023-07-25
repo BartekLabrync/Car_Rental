@@ -42,7 +42,7 @@ public class RentCarServiceImpl implements RentCarService{
         return model;
     }
 
-    public RentCar fromConvertToModel(CreateRentCarRequest dto){
+    public RentCar toModel(CreateRentCarRequest dto){
         RentCar model = RentCar.builder()
                 .id(dto.getId())
                 .employee(userRepository.getReferenceById(dto.getEmployee()))
@@ -52,7 +52,7 @@ public class RentCarServiceImpl implements RentCarService{
                 .build();
         return model;
     }
-    public RentCar convertToModel(UpdateRentCarRequest dto){
+    public RentCar toModel(UpdateRentCarRequest dto){
         RentCar model = RentCar.builder()
                 .id(dto.getId())
                 .employee(userRepository.getReferenceById(dto.getEmployee()))
@@ -64,13 +64,13 @@ public class RentCarServiceImpl implements RentCarService{
     }
 
     @Override
-    public  RentCarDto create(RentCar model) {
-        return toDto(rentCarRepository.save(model));
+    public  RentCarDto create(CreateRentCarRequest dto) {
+        return toDto(rentCarRepository.save(toModel(dto)));
     }
 
     @Override
     public RentCarDto update(UpdateRentCarRequest dto) {
-        var model = convertToModel(dto);
+        var model = toModel(dto);
         return toDto(rentCarRepository.save(model));
     }
 
