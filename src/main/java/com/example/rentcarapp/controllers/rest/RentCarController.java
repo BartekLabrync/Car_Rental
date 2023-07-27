@@ -1,4 +1,4 @@
-package com.example.rentcarapp.controllers;
+package com.example.rentcarapp.controllers.rest;
 
 import com.example.rentcarapp.dto.car.CreateCarRequest;
 import com.example.rentcarapp.dto.rentCar.CreateRentCarRequest;
@@ -11,11 +11,11 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//@Slf4j
 @RestController
 @RequestMapping("/rentCar")
 @AllArgsConstructor
@@ -38,7 +38,8 @@ public class RentCarController {
         rentCarService.update(updateRentCarRequest);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-    @PostMapping
+
+    @PostMapping("/addRentCar")
     public ResponseEntity<RentCarDto> createRentCar (@RequestBody CreateRentCarRequest createRentCarRequest){
         RentCarDto rentCarDto = rentCarService.create(createRentCarRequest);
         return ResponseEntity.ok(rentCarDto);

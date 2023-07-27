@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/addRentCar}" method="post" th:object="${createRentCarRequest}">
+    <div class="mb-3">
+        <label class="form-label">Id pracownika</label>
+        <input class="form-control" type="number" th:field="*{employee}" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Data wypożyczenia</label>
+        <input class="form-control" type="date" th:field="*{rentalDate}" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Komentarz</label>
+        <input class="form-control" type="text" th:field="*{comments}" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Id rezerwacji</label>
+        <input class="form-control" type="number" th:field="*{reservationId}" />
+    </div>
+
+    <button class="btn btn-primary" type="submit">Zapisz</button>
+</form>
+</body>
+</html>
