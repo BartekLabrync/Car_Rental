@@ -20,6 +20,6 @@ public class BranchDto {
     private List<User> staffList;
     private List<Car> listOfCurrentlyAvailCars;
     private MainRental mainRental;
-    private long reservationId;
+    //private long reservationId;
 
 }

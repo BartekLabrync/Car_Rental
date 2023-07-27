@@ -1,4 +1,4 @@
-package com.example.rentcarapp.controllers;
+package com.example.rentcarapp.controllers.rest;
 
 import com.example.rentcarapp.dto.car.CarDto;
 import com.example.rentcarapp.dto.car.CreateCarRequest;
@@ -31,14 +31,15 @@ public class CarController {
         return ResponseEntity.ok(cars);
     }
 
-    @PutMapping
+    @PostMapping
     public ResponseEntity<CarDto> createCar (@RequestBody CreateCarRequest createCarRequest) {
         CarDto carDto = carService.createCar(createCarRequest);
         return ResponseEntity.ok(carDto);
     }
 
 
-    @PostMapping
+
+    @PutMapping("{id}")
     public ResponseEntity<CarDto> updateCar (@PathVariable long id, @RequestBody UpdateCarRequest updateCarRequest) {
         carService.updateCar(id, updateCarRequest);
         return new ResponseEntity<>(HttpStatus.OK);

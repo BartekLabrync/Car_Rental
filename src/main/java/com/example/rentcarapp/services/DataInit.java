@@ -28,7 +28,7 @@ public class DataInit {
     @PostConstruct
     public void init () {
         Reservations reservation = Reservations.builder()
-                .amount(BigDecimal.valueOf(199))
+                .amount(BigDecimal.valueOf(1))
                 .reservDate(LocalDate.now())
                 .dateFor(LocalDate.now())
                 .dateTo(LocalDate.now())

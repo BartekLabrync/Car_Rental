@@ -57,7 +57,7 @@ public class BranchService {
         dto.setStaffList(branch.getStaffList());
         dto.setListOfCurrentlyAvailCars(branch.getListOfCurrentlyAvailCars());
         dto.setMainRental(branch.getMainRental());
-        dto.setReservationId(branch.getReservationId());
+        //dto.setReservationId(branch.getReservationId());
         return dto;
     }
 
@@ -68,7 +68,7 @@ public class BranchService {
         branch.setStaffList(dto.getStaffList());
         branch.setListOfCurrentlyAvailCars(dto.getListOfCurrentlyAvailCars());
         branch.setMainRental(dto.getMainRental());
-        branch.setReservationId(dto.getReservationId());
+        //branch.setReservationId(dto.getReservationId());
         return branch;
     }
 
@@ -79,7 +79,7 @@ public class BranchService {
         branch.setStaffList(dto.getStaffList());
         branch.setListOfCurrentlyAvailCars(dto.getListOfCurrentlyAvailCars());
         branch.setMainRental(dto.getMainRental());
-        branch.setReservationId(dto.getReservationId());
+        //branch.setReservationId(dto.getReservationId());
         return branch;
     }
 
@@ -90,7 +90,7 @@ public class BranchService {
         branch.setStaffList(dto.getStaffList());
         branch.setListOfCurrentlyAvailCars(dto.getListOfCurrentlyAvailCars());
         branch.setMainRental(dto.getMainRental());
-        branch.setReservationId(dto.getReservationId());
+        //branch.setReservationId(dto.getReservationId());
         return branch;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.rentcarapp.controllers;
+package com.example.rentcarapp.controllers.rest;
 
 import com.example.rentcarapp.dto.branch.BranchDto;
 import com.example.rentcarapp.dto.branch.CreateBranchRequest;
@@ -30,13 +30,13 @@ public class BranchController {
         return ResponseEntity.ok(branch);
     }
 
-    @PutMapping
+    @PostMapping
     public ResponseEntity<BranchDto> createBranch (@RequestBody CreateBranchRequest createBranchRequest) {
         BranchDto branchDto = branchService.createBranch(createBranchRequest);
         return ResponseEntity.ok(branchDto);
     }
 
-    @PostMapping
+    @PutMapping("{id}")
     public ResponseEntity<BranchDto> updateBranch (@PathVariable long id, @RequestBody UpdateBranchRequest updateBranchRequest) {
         branchService.updateBranch(id, updateBranchRequest);
         return new ResponseEntity<>(HttpStatus.OK);
