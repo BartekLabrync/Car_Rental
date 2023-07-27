@@ -1,30 +1,22 @@
-package com.example.rentcarapp.models;
+package com.example.rentcarapp.dto.user;
 
-import jakarta.persistence.*;
+import com.example.rentcarapp.models.Branch;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
-@Entity
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "users")
-public class User {
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+public class UserDto {
+
     private long id;
     private String firstName;
     private String lastName;
     private String login;
     private String password;
     private String email;
-    @ManyToOne(fetch = FetchType.LAZY)
     private Branch branchId;
     private long addressId;
-    private String role;
+
 }

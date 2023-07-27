@@ -3,7 +3,7 @@ package com.example.rentcarapp.controllers.rest;
 import com.example.rentcarapp.dto.address.AddressDto;
 import com.example.rentcarapp.dto.address.CreateAddressRequest;
 import com.example.rentcarapp.dto.address.UpdateAddressRequest;
-import com.example.rentcarapp.services.AddressService;
+import com.example.rentcarapp.services.Address.AddressService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
