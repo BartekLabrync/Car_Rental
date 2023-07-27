@@ -1,14 +1,10 @@
 package com.example.rentcarapp.controllers;
 
-import com.example.rentcarapp.dto.car.CreateCarRequest;
 import com.example.rentcarapp.dto.rentCar.CreateRentCarRequest;
 import com.example.rentcarapp.dto.rentCar.RentCarDto;
 import com.example.rentcarapp.dto.rentCar.UpdateRentCarRequest;
-import com.example.rentcarapp.models.RentCar;
-import com.example.rentcarapp.services.AddressService;
-import com.example.rentcarapp.services.RentCarService;
+import com.example.rentcarapp.services.RentCar.RentCarService;
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

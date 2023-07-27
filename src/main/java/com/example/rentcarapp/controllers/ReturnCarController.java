@@ -1,11 +1,9 @@
 package com.example.rentcarapp.controllers;
 
-import com.example.rentcarapp.dto.rentCar.RentCarDto;
 import com.example.rentcarapp.dto.returnCar.CreateReturnCarRequest;
 import com.example.rentcarapp.dto.returnCar.ReturnCarDto;
 import com.example.rentcarapp.dto.returnCar.UpdateReturnCarRequest;
-import com.example.rentcarapp.models.ReturnCar;
-import com.example.rentcarapp.services.ReturnCarService;
+import com.example.rentcarapp.services.ReturnCar.ReturnCarService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
