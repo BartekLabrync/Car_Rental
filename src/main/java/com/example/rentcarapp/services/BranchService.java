@@ -25,26 +25,26 @@ public class BranchService {
     public List<BranchDto> getAllBranches() {
         return branchRepository.findAll()
                 .stream()
-                .map(this::convertToDto)
+                .map(this::toDto)
                 .collect(Collectors.toList());
     }
 
     public BranchDto getBranchById(Long id) {
         return branchRepository.findById(id)
-                .map(this::convertToDto)
+                .map(this::toDto)
                 .orElseThrow(() -> new RuntimeException("not found"));
     }
 
     public BranchDto createBranch (CreateBranchRequest createBranchRequest) {
-        Branch branch = this.fromConvertToEntity(createBranchRequest);
+        Branch branch = this.toModel(createBranchRequest);
         branch = branchRepository.save(branch);
-        return this.convertToDto(branch);
+        return this.toDto(branch);
     }
 
     public BranchDto updateBranch (long id, UpdateBranchRequest updateBranchRequest) {
-        Branch branch = this.convertToEntity(updateBranchRequest);
+        Branch branch = this.toModel(updateBranchRequest);
         branch = branchRepository.save(branch);
-        return this.convertToDto(branch);
+        return this.toDto(branch);
     }
 
     public void deleteBranch (Long id) {
@@ -53,7 +53,7 @@ public class BranchService {
     }
 
 
-    public BranchDto convertToDto(Branch branch) {
+    public BranchDto toDto(Branch branch) {
         BranchDto dto = new BranchDto();
         dto.setId(branch.getId());
         dto.setAddress(branch.getAddress());
@@ -64,7 +64,7 @@ public class BranchService {
         return dto;
     }
 
-    public Branch convertToEntity(BranchDto dto) {
+    public Branch toModel(BranchDto dto) {
         Branch branch = new Branch();
         branch.setId(dto.getId());
         branch.setAddress(dto.getAddress());
@@ -75,18 +75,18 @@ public class BranchService {
         return branch;
     }
 
-    public Branch fromConvertToEntity(CreateBranchRequest dto) {
+    public Branch toModel(CreateBranchRequest dto) {
         Branch branch = new Branch();
         branch.setId(dto.getId());
         branch.setAddress(addressRepository.getReferenceById(dto.getAddress()));
-//        branch.setStaffList(dto.getStaffList());
-//        branch.setListOfCurrentlyAvailCars(dto.getListOfCurrentlyAvailCars());
+        branch.setStaffList(null);
+        branch.setListOfCurrentlyAvailCars(null);
         branch.setMainRental(mainRentalRepository.getReferenceById(dto.getMainRental()));
         //branch.setReservationId(dto.getReservationId());
         return branch;
     }
 
-    public Branch convertToEntity(UpdateBranchRequest dto) {
+    public Branch toModel(UpdateBranchRequest dto) {
         Branch branch = new Branch();
         branch.setId(dto.getId());
         branch.setAddress(dto.getAddress());

@@ -88,7 +88,11 @@ public class CarService {
         car.setYear(dto.getYear());
         car.setColor(dto.getColor());
         car.setMileage(dto.getMileage());
-        car.setReservation(reservationsRepository.getReferenceById(dto.getReservation_id()));
+        if(reservationsRepository.existsById(dto.getReservation_id())){
+            car.setReservation(reservationsRepository.getReferenceById(dto.getReservation_id()));
+        } else {
+            car.setReservation(null);
+        }
         return car;
     }
 
