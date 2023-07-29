@@ -1,4 +1,4 @@
-package com.example.rentcarapp.controllers;
+package com.example.rentcarapp.controllers.rest;
 
 import com.example.rentcarapp.dto.address.AddressDto;
 import com.example.rentcarapp.dto.address.CreateAddressRequest;
