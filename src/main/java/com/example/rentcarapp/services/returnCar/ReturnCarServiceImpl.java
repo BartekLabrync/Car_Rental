@@ -3,7 +3,9 @@ package com.example.rentcarapp.services.returnCar;
 import com.example.rentcarapp.dto.returnCar.CreateReturnCarRequest;
 import com.example.rentcarapp.dto.returnCar.ReturnCarDto;
 import com.example.rentcarapp.dto.returnCar.UpdateReturnCarRequest;
+import com.example.rentcarapp.models.Reservations;
 import com.example.rentcarapp.models.ReturnCar;
+import com.example.rentcarapp.models.User;
 import com.example.rentcarapp.repositories.ReservationsRepository;
 import com.example.rentcarapp.repositories.ReturnCarRepository;
 import com.example.rentcarapp.repositories.UserRepository;
@@ -32,12 +34,20 @@ public class ReturnCarServiceImpl implements ReturnCarService {
         return dto;
     }
     private ReturnCar toModel(ReturnCarDto dto){
+        User user = null;
+        if(userRepository.existsById(dto.getId())){
+            user = userRepository.getReferenceById(dto.getId());
+        }
+        Reservations reservations = null;
+        if(reservationsRepository.existsById(dto.getReservationId())){
+            reservations = reservationsRepository.getReferenceById(dto.getReservationId());
+        }
         ReturnCar model = ReturnCar.builder()
                 .id(dto.getId())
                 .additionalFees(dto.getAdditionalFees())
                 .dateOfReturn(dto.getDateOfReturn())
-                .employee(userRepository.getReferenceById(dto.getEmployee()))
-                .reservation(reservationsRepository.getReferenceById(dto.getReservationId()))
+                .employee(user)
+                .reservation(reservations)
                 .comments(dto.getComments())
                 .build();
         return model;
@@ -52,24 +62,40 @@ public class ReturnCarServiceImpl implements ReturnCarService {
 
 
     public ReturnCar toModel(CreateReturnCarRequest dto){
+        User user = null;
+        if(userRepository.existsById(dto.getId())){
+            user = userRepository.getReferenceById(dto.getId());
+        }
+        Reservations reservations = null;
+        if(reservationsRepository.existsById(dto.getReservationId())){
+            reservations = reservationsRepository.getReferenceById(dto.getReservationId());
+        }
         ReturnCar model = ReturnCar.builder()
                 .id(dto.getId())
                 .additionalFees(dto.getAdditionalFees())
                 .dateOfReturn(dto.getDateOfReturn())
-                .employee(userRepository.getReferenceById(dto.getEmployee()))
-                .reservation(reservationsRepository.getReferenceById(dto.getReservationId()))
+                .employee(user)
+                .reservation(reservations)
                 .comments(dto.getComments())
                 .build();
         return model;
     }
 
     public ReturnCar toModel(UpdateReturnCarRequest dto){
+        User user = null;
+        if(userRepository.existsById(dto.getId())){
+            user = userRepository.getReferenceById(dto.getId());
+        }
+        Reservations reservations = null;
+        if(reservationsRepository.existsById(dto.getReservationId())){
+            reservations = reservationsRepository.getReferenceById(dto.getReservationId());
+        }
         ReturnCar model = ReturnCar.builder()
                 .id(dto.getId())
                 .additionalFees(dto.getAdditionalFees())
                 .dateOfReturn(dto.getDateOfReturn())
-                .employee(userRepository.getReferenceById(dto.getEmployee()))
-                .reservation(reservationsRepository.getReferenceById(dto.getReservationId()))
+                .employee(user)
+                .reservation(reservations)
                 .comments(dto.getComments())
                 .build();
         return model;
