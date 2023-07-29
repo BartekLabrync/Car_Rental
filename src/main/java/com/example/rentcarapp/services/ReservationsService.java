@@ -64,16 +64,28 @@ public class ReservationsService {
         ReservationDto dto = new ReservationDto();
         dto.setId(reservations.getId());
         dto.setReservDate(reservations.getReservDate());
-        dto.setClientId(reservations.getClient().getId());
-        dto.setCarId(reservations.getCar().getId());
+
+        if (reservations.getClient() != null) {
+            dto.setClientId(reservations.getClient().getId());
+        }
+        if (reservations.getCar() != null) {
+            dto.setCarId(reservations.getCar().getId());
+        }
+        if (reservations.getReservBranch() != null) {
+            dto.setReservBranchId(reservations.getReservBranch().getId());
+        }
+        if (reservations.getBranchReturn() != null) {
+            dto.setBranchReturnId(reservations.getBranchReturn().getId());
+        }
+
         dto.setDateFor(reservations.getDateFor());
         dto.setDateTo(reservations.getDateTo());
-        dto.setReservBranchId(reservations.getReservBranch().getId());
-        dto.setBranchReturnId(reservations.getBranchReturn().getId());
         dto.setAmount(reservations.getAmount());
         dto.setParentId(reservations.getParentId());
         return dto;
     }
+
+
 
     public Reservations convertToEntity (ReservationDto dto) {
         Reservations reservations = new Reservations();
