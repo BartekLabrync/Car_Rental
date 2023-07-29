@@ -14,6 +14,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class MainRentalController {
     private final MainRentalService mainRentalService;
 
+    @GetMapping("/mainRentals")
+    public String getMainRentals(Model model){
+        model.addAttribute("mainRentals", mainRentalService.getAllMainRentals());
+        return "mainRentals";
+    }
+
     @GetMapping("/addMainRental")
     public String addMainRental(Model model){
         model.addAttribute("createMainRental", new CreateMainRentalRequest());
