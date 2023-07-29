@@ -20,7 +20,7 @@ public class MainRental {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String Name;
-    @OneToOne
+    @ManyToOne
     private Address Contact_Address;
     private String Owner;
     private String Logo;

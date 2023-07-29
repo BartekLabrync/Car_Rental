@@ -16,10 +16,10 @@ import java.util.List;
 public class CreateBranchRequest {
 
     private long id;
-    private Address address;
-    private List<User> staffList;
-    private List<Car> listOfCurrentlyAvailCars;
-    private MainRental mainRental;
+    private long address;
+//    private List<User> staffList;
+//    private List<Car> listOfCurrentlyAvailCars;
+    private long mainRental;
     //private long reservationId;
 
 }

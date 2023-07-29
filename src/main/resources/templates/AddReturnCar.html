@@ -8,27 +8,28 @@
 <body>
 <form th:action="@{/addReturnCar}" method="post" th:object="$*{creteReturnCarRequest}">
     <div class="mb-3">
-        <label class="form-label">Id pracownika</label>
+
+        <label class="form-label">Id</label>
+        <input class="form-control" type="number" th:field="*{id}" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">ID Pracownika</label>
         <input class="form-control" type="number" th:field="*{employee}" />
     </div>
     <div class="mb-3">
-        <label class="form-label">employee</label>
-        <input class="form-control" type="date" th:field="*{rentalDate}" />
+        <label class="form-label">Data zwrotu</label>
+        <input class="form-control" type="date" th:field="*{dateOfReturn}" />
     </div>
     <div class="mb-3">
-        <label class="form-label">Date Of Return</label>
+        <label class="form-label">Dopłata</label>
+        <input class="form-control" type="text" th:field="*{additionalFees}" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Uwagi</label>
         <input class="form-control" type="text" th:field="*{comments}" />
     </div>
     <div class="mb-3">
-        <label class="form-label">Additional Fees</label>
-        <input class="form-control" type="number" th:field="*{reservationId}" />
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Comments</label>
-        <input class="form-control" type="number" th:field="*{reservationId}" />
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Reservations</label>
+        <label class="form-label">ID Rezerwacji</label>
         <input class="form-control" type="number" th:field="*{reservationId}" />
     </div>
     <button class="btn btn-primary" type="submit">Zapisz</button>
