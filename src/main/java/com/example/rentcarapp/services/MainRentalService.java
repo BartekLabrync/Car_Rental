@@ -27,27 +27,27 @@ public class MainRentalService {
     public List<MainRentalDto> getAllMainRentals() {
         return mainRentalRepository.findAll()
                 .stream()
-                .map(this::convertToDto)
+                .map(this::toDto)
                 .collect(Collectors.toList());
     }
 
     public MainRentalDto getMainRentalsById(Long id) {
         return mainRentalRepository.findById(id)
-                .map(this::convertToDto)
+                .map(this::toDto)
                 .orElseThrow(() -> new ReservationNotFoundException("Not found"));
     }
 
     public MainRentalDto createMainRentals(CreateMainRentalRequest createMainRentalRequest) {
-        MainRental mainRental = this.fromConvertToEntity(createMainRentalRequest);
+        MainRental mainRental = this.toEntity(createMainRentalRequest);
         mainRental = mainRentalRepository.save(mainRental);
-        return this.convertToDto(mainRental);
+        return this.toDto(mainRental);
     }
 
 
     public MainRentalDto updateMainRentals(long id, UpdateMainRentalRequest updateMainRentalRequest) {
-        MainRental mainRental = this.convertToEntity(updateMainRentalRequest);
+        MainRental mainRental = this.toEntity(updateMainRentalRequest);
         mainRental = mainRentalRepository.save(mainRental);
-        return this.convertToDto(mainRental);
+        return this.toDto(mainRental);
     }
 
     public void deleteMainRentals(Long id) {
@@ -55,7 +55,7 @@ public class MainRentalService {
         mainRentalRepository.deleteById(id);
     }
 
-    public MainRentalDto convertToDto (MainRental mainRental) {
+    public MainRentalDto toDto (MainRental mainRental) {
         MainRentalDto dto = new MainRentalDto();
         dto.setId(mainRental.getId());
         dto.setName(mainRental.getName());
@@ -65,31 +65,43 @@ public class MainRentalService {
         return dto;
     }
 
-    public MainRental convertToEntity (MainRentalDto dto) {
+    public MainRental toEntity (MainRentalDto dto) {
         MainRental mainRental = new MainRental();
         mainRental.setId(dto.getId());
         mainRental.setName(dto.getName());
-        mainRental.setContact_Address(addressRepository.getReferenceById(dto.getContact_Address()));
+        if(addressRepository.existsById(dto.getContact_Address())){
+            mainRental.setContact_Address(addressRepository.getReferenceById(dto.getContact_Address()));
+        } else {
+            mainRental.setContact_Address(addressRepository.getReferenceById(dto.getContact_Address()));
+        }
         mainRental.setOwner(dto.getOwner());
         mainRental.setLogo(dto.getLogo());
         return mainRental;
     }
 
-    public MainRental fromConvertToEntity (CreateMainRentalRequest dto) {
+    public MainRental toEntity (CreateMainRentalRequest dto) {
         MainRental mainRental = new MainRental();
         mainRental.setId(dto.getId());
         mainRental.setName(dto.getName());
-        mainRental.setContact_Address(addressRepository.getReferenceById(dto.getContact_Address()));
+        if(addressRepository.existsById(dto.getContact_Address())){
+            mainRental.setContact_Address(addressRepository.getReferenceById(dto.getContact_Address()));
+        } else {
+            mainRental.setContact_Address(addressRepository.getReferenceById(dto.getContact_Address()));
+        }
         mainRental.setOwner(dto.getOwner());
         mainRental.setLogo(dto.getLogo());
         return mainRental;
     }
 
-    public MainRental convertToEntity (UpdateMainRentalRequest dto) {
+    public MainRental toEntity (UpdateMainRentalRequest dto) {
         MainRental mainRental = new MainRental();
         mainRental.setId(dto.getId());
         mainRental.setName(dto.getName());
-        mainRental.setContact_Address(addressRepository.getReferenceById(dto.getContact_Address()));
+        if(addressRepository.existsById(dto.getContact_Address())){
+            mainRental.setContact_Address(addressRepository.getReferenceById(dto.getContact_Address()));
+        } else {
+            mainRental.setContact_Address(addressRepository.getReferenceById(dto.getContact_Address()));
+        }
         mainRental.setOwner(dto.getOwner());
         mainRental.setLogo(dto.getLogo());
         return mainRental;

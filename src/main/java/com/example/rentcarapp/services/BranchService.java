@@ -78,10 +78,18 @@ public class BranchService {
     public Branch toModel(CreateBranchRequest dto) {
         Branch branch = new Branch();
         branch.setId(dto.getId());
-        branch.setAddress(addressRepository.getReferenceById(dto.getAddress()));
+        if(addressRepository.existsById(dto.getAddress())){
+            branch.setAddress(addressRepository.getReferenceById(dto.getAddress()));
+        } else {
+            branch.setAddress(addressRepository.getReferenceById(null));
+        }
         branch.setStaffList(null);
         branch.setListOfCurrentlyAvailCars(null);
-        branch.setMainRental(mainRentalRepository.getReferenceById(dto.getMainRental()));
+        if(mainRentalRepository.existsById(dto.getMainRental())){
+            branch.setMainRental(mainRentalRepository.getReferenceById(dto.getMainRental()));
+        } else {
+            branch.setMainRental(null);
+        }
         //branch.setReservationId(dto.getReservationId());
         return branch;
     }

@@ -25,26 +25,26 @@ public class UserService {
     public List<UserDto> getAllUsers () {
         return userRepository.findAll()
                 .stream()
-                .map(this::convertToDto)
+                .map(this::toDto)
                 .collect(Collectors.toList());
     }
 
     public UserDto getUserById (@PathVariable long id) {
         return userRepository.findById(id)
-                .map(this::convertToDto)
+                .map(this::toDto)
                 .orElseThrow(() -> new RuntimeException("Not Found"));
     }
 
     public UserDto createUser (CreateUserRequest createUserRequest) {
         User user = toModel(createUserRequest);
         user = userRepository.save(user);
-        return convertToDto(user);
+        return toDto(user);
     }
 
     public UserDto updateUser (UpdateUserRequest updateUserRequest) {
-        User user = this.convertToEntity(updateUserRequest);
+        User user = this.toModel(updateUserRequest);
         user = userRepository.save(user);
-        return this.convertToDto(user);
+        return this.toDto(user);
     }
 
     public void deleteUser (Long id) {
@@ -53,7 +53,7 @@ public class UserService {
     }
 
 
-    public UserDto convertToDto (User user) {
+    public UserDto toDto (User user) {
         long branchId = 0L;
         if(user.getBranch() != null){
             branchId = user.getBranch().getId();
@@ -104,7 +104,7 @@ public class UserService {
         return user;
     }
 
-    public User convertToEntity (UpdateUserRequest dto) {
+    public User toModel (UpdateUserRequest dto) {
         User user = new User();
         user.setId(dto.getId());
         user.setFirstName(dto.getFirstName());
