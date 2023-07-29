@@ -4,6 +4,8 @@ import com.example.rentcarapp.dto.rentCar.CreateRentCarRequest;
 import com.example.rentcarapp.dto.rentCar.RentCarDto;
 import com.example.rentcarapp.dto.rentCar.UpdateRentCarRequest;
 import com.example.rentcarapp.models.RentCar;
+import com.example.rentcarapp.models.Reservations;
+import com.example.rentcarapp.models.User;
 import com.example.rentcarapp.repositories.RentCarRepository;
 import com.example.rentcarapp.repositories.ReservationsRepository;
 import com.example.rentcarapp.repositories.UserRepository;
@@ -33,33 +35,57 @@ public class RentCarServiceImpl implements RentCarService {
         return dto;
     }
     private RentCar toModel (RentCarDto dto){
+        User user = null;
+        if(userRepository.existsById(dto.getId())){
+            user = userRepository.getReferenceById(dto.getId());
+        }
+        Reservations reservations = null;
+        if(reservationsRepository.existsById(dto.getReservationId())){
+            reservations = reservationsRepository.getReferenceById(dto.getReservationId());
+        }
         RentCar model = RentCar.builder()
                 .id(dto.getId())
-                .employee(userRepository.getReferenceById(dto.getEmployee()))
+                .employee(user)
                 .rentalDate(dto.getRentalDate())
                 .comments(dto.getComments())
-                .reservation(reservationsRepository.getReferenceById(dto.getReservationId()))
+                .reservation(reservations)
                 .build();
         return model;
     }
 
     public RentCar toModel(CreateRentCarRequest dto){
+        User user = null;
+        if(userRepository.existsById(dto.getId())){
+            user = userRepository.getReferenceById(dto.getId());
+        }
+        Reservations reservations = null;
+        if(reservationsRepository.existsById(dto.getReservationId())){
+            reservations = reservationsRepository.getReferenceById(dto.getReservationId());
+        }
         RentCar model = RentCar.builder()
                 .id(dto.getId())
-                .employee(userRepository.getReferenceById(dto.getEmployee()))
+                .employee(user)
                 .rentalDate(dto.getRentalDate())
                 .comments(dto.getComments())
-                .reservation(reservationsRepository.getReferenceById(dto.getReservationId()))
+                .reservation(reservations)
                 .build();
         return model;
     }
     public RentCar toModel(UpdateRentCarRequest dto){
+        User user = null;
+        if(userRepository.existsById(dto.getId())){
+            user = userRepository.getReferenceById(dto.getId());
+        }
+        Reservations reservations = null;
+        if(reservationsRepository.existsById(dto.getReservationId())){
+            reservations = reservationsRepository.getReferenceById(dto.getReservationId());
+        }
         RentCar model = RentCar.builder()
                 .id(dto.getId())
-                .employee(userRepository.getReferenceById(dto.getEmployee()))
+                .employee(user)
                 .rentalDate(dto.getRentalDate())
                 .comments(dto.getComments())
-                .reservation(reservationsRepository.getReferenceById(dto.getReservationId()))
+                .reservation(reservations)
                 .build();
         return model;
     }
