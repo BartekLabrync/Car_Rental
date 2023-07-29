@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">BRAND</th>
+        <th scope="col">NAME</th>
+        <th scope="col">BODY TYPE</th>
+        <th scope="col">YEAR</th>
+        <th scope="col">COLOR</th>
+        <th scope="col">MILEAGE</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="car:${cars}">
+        <th scope="row" th:text="${car.getId()}"></th>
+        <td th:text="${car.getBrand()}"></td>
+        <td th:text="${car.getName()}"></td>
+        <td th:text="${car.getBodyType()}"></td>
+        <td th:text="${car.getYear()}"></td>
+        <td th:text="${car.getColor()}"></td>
+        <td th:text="${car.getMileage()}"></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
