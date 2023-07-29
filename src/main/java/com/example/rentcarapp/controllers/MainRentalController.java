@@ -17,13 +17,13 @@ public class MainRentalController {
     @GetMapping("/addMainRental")
     public String addMainRental(Model model){
         model.addAttribute("createMainRental", new CreateMainRentalRequest());
-        return "addMainRental";
+        return "AddMainRental";
     }
     @PostMapping("/addMainRental")
     public String addMainRental(
             CreateMainRentalRequest createMainRentalRequest,
             Model model){
-        MainRentalDto mainRentalDto = mainRentalService.createMainRentals(createMainRentalRequest);
-        return "redirect:addMainRental";
+        mainRentalService.createMainRentals(createMainRentalRequest);
+        return "redirect:AddMainRental";
     }
 }

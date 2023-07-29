@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class AddressController {
     private final AddressService addressService;
 
-    @GetMapping("addresses")
+    @GetMapping("/addresses")
     public String getAddresses(Model model){
         model.addAttribute("addresses", addressService.readAll());
         return "addresses";
@@ -30,7 +30,7 @@ public class AddressController {
     public String addAddress(
             CreateAddressRequest createAddressRequest,
             Model model){
-        AddressDto addressDto = addressService.create(createAddressRequest);
+        addressService.create(createAddressRequest);
 
         return "redirect:addAddress";
     }
