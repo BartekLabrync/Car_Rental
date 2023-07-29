@@ -21,10 +21,10 @@ public class CarController {
         return "cars";
     }
 
-    @GetMapping("/addCars")
+    @GetMapping("/addCar")
     public String addCar(Model model){
         model.addAttribute("createCarRequest", new CreateCarRequest());
-        return "addCar";
+        return "AddCar";
     }
 
     @PostMapping("/addCar")
@@ -33,6 +33,6 @@ public class CarController {
             Model model){
         CarDto carDto = carService.createCar(createCarRequest);
 
-        return "redirect:addCar";
+        return "redirect:AddCar";
     }
 }

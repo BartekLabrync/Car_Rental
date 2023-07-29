@@ -8,7 +8,11 @@
 <body>
 <form th:action="@{/addRentCar}" method="post" th:object="${createRentCarRequest}">
     <div class="mb-3">
-        <label class="form-label">Id pracownika</label>
+        <label class="form-label">Id</label>
+        <input class="form-control" type="number" th:field="*{id}" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">ID Pracownika</label>
         <input class="form-control" type="number" th:field="*{employee}" />
     </div>
     <div class="mb-3">
