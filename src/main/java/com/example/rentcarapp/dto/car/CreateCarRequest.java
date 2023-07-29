@@ -1,6 +1,5 @@
 package com.example.rentcarapp.dto.car;
 
-import com.example.rentcarapp.models.Reservations;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,11 +10,11 @@ import lombok.NoArgsConstructor;
 public class CreateCarRequest {
 
     private Long id;
-    private String Brand;
-    private String Name;
-    private String BodyType;
-    private Long Year;
-    private String Color;
-    private Long Mileage;
+    private String brand;
+    private String name;
+    private String bodyType;
+    private Long year;
+    private String color;
+    private Long mileage;
     private Long reservation_id;
 }
