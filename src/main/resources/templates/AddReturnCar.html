@@ -6,8 +6,9 @@
     <title>Title</title>
 </head>
 <body>
-<form th:action="@{/addReturnCar}" method="post" th:object="${creteReturnCarRequest}">
+<form th:action="@{/addReturnCar}" method="post" th:object="$*{creteReturnCarRequest}">
     <div class="mb-3">
+
         <label class="form-label">Id</label>
         <input class="form-control" type="number" th:field="*{id}" />
     </div>

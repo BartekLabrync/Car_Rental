@@ -9,40 +9,41 @@
 <form th:action="@{/addReservation}" method="post" th:object="${createReservationsRequest}">
     <div class="mb-3">
         <label class="form-label">Id pracownika</label>
-        <input class="form-control" type="number" th:field="{employee}" />
+        <input class="form-control" type="number" th:field="*{id}" />
     </div>
     <div class="mb-3">
         <label class="form-label">Reservation Date</label>
-        <input class="form-control" type="date" th:field="{rentalDate}" />
+        <input class="form-control" type="date" th:field="*{reservDate}" />
     </div>
     <div class="mb-3">
         <label class="form-label">Client</label>
-        <input class="form-control" type="text" th:field="{comments}" />
+        <input class="form-control" type="text" th:field="*{clientId}" />
     </div>
     <div class="mb-3">
         <label class="form-label">Car</label>
-        <input class="form-control" type="number" th:field="{reservationId}" />
+        <input class="form-control" type="number" th:field="*{carId}" />
     </div>
     <div class="mb-3">
-        <label class="form-label">DateFor</label>
-        <input class="form-control" type="number" th:field="{reservationId}" />
+        <label class="form-label">Date For</label>
+        <input class="form-control" type="number" th:field="*{dateFor}" />
     </div>
     <div class="mb-3">
-        <label class="form-label">DateTo</label>
-        <input class="form-control" type="number" th:field="{reservationId}" />
+        <label class="form-label">Date To</label>
+        <input class="form-control" type="number" th:field="*{dateTo}" />
     </div>
     <div class="mb-3">
         <label class="form-label">Reservation Branch</label>
-        <input class="form-control" type="number" th:field="{reservationId}" />
+        <input class="form-control" type="number" th:field="*{reservBranchId}" />
     </div>
     <div class="mb-3">
         <label class="form-label">Branch Return</label>
-        <input class="form-control" type="number" th:field="{reservationId}" />
+        <input class="form-control" type="number" th:field="*{reservBranchId}" />
     </div>
     <div class="mb-3">
         <label class="form-label">Amount</label>
-        <input class="form-control" type="number" th:field="{reservationId}" />
+        <input class="form-control" type="number" th:field="*{amount}" />
     </div>
+
     <button class="btn btn-primary" type="submit">Zapisz</button>
 </form>
 </body>

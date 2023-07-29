@@ -9,31 +9,40 @@
 <form th:action="@{/addUser}" method="post" th:object="${createUserRequest}">
     <div class="mb-3">
         <label class="form-label">Id pracownika</label>
-        <input class="form-control" type="number" th:field="*{id}" />
+        <input class="form-control" type="number" th:field="*{employee}" />
     </div>
     <div class="mb-3">
         <label class="form-label">First Name</label>
-        <input class="form-control" type="text" th:field="*{firstName}" />
+        <input class="form-control" type="date" th:field="*{rentalDate}" />
     </div>
     <div class="mb-3">
         <label class="form-label">Last Name</label>
-        <input class="form-control" type="text" th:field="*{lastName}" />
+        <input class="form-control" type="text" th:field="*{comments}" />
     </div>
     <div class="mb-3">
         <label class="form-label">Login</label>
-        <input class="form-control" type="text" th:field="*{login}" />
+        <input class="form-control" type="number" th:field="*{reservationId}" />
     </div>
     <div class="mb-3">
         <label class="form-label">Password</label>
-        <input class="form-control" type="text" th:field="*{password}" />
+        <input class="form-control" type="number" th:field="*{reservationId}" />
     </div>
     <div class="mb-3">
         <label class="form-label">Email</label>
-        <input class="form-control" type="text" th:field="*{email}" />
+        <input class="form-control" type="number" th:field="*{reservationId}" />
     </div>
     <div class="mb-3">
-        <label class="form-label">Branch Id</label>
-        <input class="form-control" type="text" th:field="*{branchId}" />
+        <label class="form-label">BranchId</label>
+        <input class="form-control" type="number" th:field="*{reservationId}" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Address</label>
+        <input class="form-control" type="number" th:field="*{reservationId}" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Role</label>
+        <input class="form-control" type="number" th:field="*{reservationId}" />
+
     </div>
     <button class="btn btn-primary" type="submit">Zapisz</button>
 </form>
