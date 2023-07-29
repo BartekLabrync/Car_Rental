@@ -5,11 +5,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class LoginUserDto {
+@NoArgsConstructor
+public class UpdateUserRequest {
+
+    private long id;
+    private String firstName;
+    private String lastName;
     private String login;
-    private String email;
     private String password;
+    private String email;
+    private long addressId;
 
 }

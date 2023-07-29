@@ -5,7 +5,6 @@ import com.example.rentcarapp.dto.address.CreateAddressRequest;
 import com.example.rentcarapp.dto.address.UpdateAddressRequest;
 import com.example.rentcarapp.models.Address;
 import com.example.rentcarapp.repositories.AddressRepository;
-import com.example.rentcarapp.services.address.AddressService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
