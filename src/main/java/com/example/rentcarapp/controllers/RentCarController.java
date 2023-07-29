@@ -14,6 +14,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 @AllArgsConstructor
 public class RentCarController {
     private final RentCarService rentCarService;
+
+    @GetMapping("/rentCars")
+    public String getRentCars(Model model){
+        model.addAttribute("rentCars", rentCarService.readAll());
+        return "rentCars";
+    }
     @GetMapping("/addRentCar")
     public String addRentCar(Model model){
         model.addAttribute("createRentCarRequest", new CreateRentCarRequest());
