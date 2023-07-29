@@ -1,0 +1,256 @@
+[33mcommit 9c19142500b58461cf3c30fa43d82d8fbbd254d7[m[33m ([m[1;36mHEAD -> [m[1;32m15_UserServiceAndController[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: ololip <oliwerlipinski96@gmail.com>
+Date:   Tue Jul 25 18:55:33 2023 +0200
+
+    Revert "Delete DataInit.java"
+    
+    This reverts commit 1110a7681963d6964256f1467ff09afacd086b33.
+
+[33mcommit b7a62f5bae930d21f24309aebb3512cbf2ed5cfb[m
+Author: ololip <oliwerlipinski96@gmail.com>
+Date:   Tue Jul 25 18:54:39 2023 +0200
+
+    Revert "Delete application.properties"
+    
+    This reverts commit 80c5376cc39fba45de2ab1f778e28f7b65ee5ecf.
+
+[33mcommit ab4692b25040185b728ebf2b9d4a8fba8c6b0873[m
+Merge: 2327acc 80c5376
+Author: ololip <40671061+ololip@users.noreply.github.com>
+Date:   Tue Jul 25 18:43:46 2023 +0200
+
+    Merge pull request #20 from BartekLabrync/refactor
+    
+    refactor
+
+[33mcommit 80c5376cc39fba45de2ab1f778e28f7b65ee5ecf[m
+Author: ololip <40671061+ololip@users.noreply.github.com>
+Date:   Tue Jul 25 18:43:27 2023 +0200
+
+    Delete application.properties
+
+[33mcommit 1110a7681963d6964256f1467ff09afacd086b33[m
+Author: ololip <40671061+ololip@users.noreply.github.com>
+Date:   Tue Jul 25 18:43:20 2023 +0200
+
+    Delete DataInit.java
+
+[33mcommit e97e26a039ec59cf0a4c809522e589f835804f13[m
+Author: ololip <oliwerlipinski96@gmail.com>
+Date:   Tue Jul 25 18:40:23 2023 +0200
+
+    refactor
+
+[33mcommit 2327accdd22155a57108022a6707b665c9836ac5[m
+Merge: 0b0c66f 311f839
+Author: ololip <40671061+ololip@users.noreply.github.com>
+Date:   Tue Jul 25 18:32:09 2023 +0200
+
+    Merge pull request #19 from BartekLabrync/13_MainRentalServiceAndRepo
+    
+    13_MainRentalServiceAndRepo
+
+[33mcommit 311f839a9af644a823ac4f8ee9a12aee8e151d64[m[33m ([m[1;31morigin/13_MainRentalServiceAndRepo[m[33m, [m[1;32m13_MainRentalServiceAndRepo[m[33m)[m
+Author: BartekLabrync <barteklabrync7@gmail.com>
+Date:   Tue Jul 25 18:29:14 2023 +0200
+
+    13_MainRentalServiceAndRepo
+
+[33mcommit 0b0c66fd019047613237b29a11490fe6127122ca[m
+Merge: c7313cf 38f3809
+Author: ololip <40671061+ololip@users.noreply.github.com>
+Date:   Tue Jul 25 18:25:06 2023 +0200
+
+    Merge pull request #18 from BartekLabrync/14_ReturnCarController
+    
+    14_ReturnCarController
+
+[33mcommit 38f38090adf3357ceb392c147594715c258c0fd1[m
+Author: AniaWoj <wojtalewicz.ania@gmail.com>
+Date:   Tue Jul 25 18:23:26 2023 +0200
+
+    14_ReturnCarController
+
+[33mcommit c7313cffe67feaf01c91dde4269112f92146845f[m
+Merge: fa1c116 d1843b1
+Author: ololip <40671061+ololip@users.noreply.github.com>
+Date:   Sun Jul 23 14:44:27 2023 +0200
+
+    Merge pull request #17 from BartekLabrync/9_RentCarController
+    
+    9_RentCarController
+
+[33mcommit d1843b1653cd830ffeda48f287c586e94dc88157[m
+Author: AniaWoj <wojtalewicz.ania@gmail.com>
+Date:   Sun Jul 23 14:00:13 2023 +0200
+
+    9_RentCarController
+
+[33mcommit fa1c116410a3bd74e339166bbb9659eaac52a89a[m
+Author: ololip <oliwerlipinski96@gmail.com>
+Date:   Sun Jul 23 13:42:48 2023 +0200
+
+    refactor
+
+[33mcommit 7c00f27d6570b0658d3ed652920665074070a406[m
+Merge: 9ca3e9f ebbccb8
+Author: ololip <40671061+ololip@users.noreply.github.com>
+Date:   Sun Jul 23 13:34:05 2023 +0200
+
+    Merge pull request #16 from BartekLabrync/9_RentCarController
+    
+    9_RentCarController
+
+[33mcommit ebbccb8736782fd3b35972155d27884851237165[m[33m ([m[1;31morigin/9_RentCarController[m[33m)[m
+Author: AniaWoj <wojtalewicz.ania@gmail.com>
+Date:   Sun Jul 23 13:27:44 2023 +0200
+
+    9_RentCarController
+
+[33mcommit 9ca3e9feaa90ac6a9653d33ec57a43ddb9bcb487[m
+Author: ololip <oliwerlipinski96@gmail.com>
+Date:   Sun Jul 23 13:03:48 2023 +0200
+
+    refactor
+
+[33mcommit db176240f1d12ed0a1edbae4778b4821a8069df6[m
+Merge: 49090ee 726a391
+Author: ololip <40671061+ololip@users.noreply.github.com>
+Date:   Sun Jul 23 12:59:50 2023 +0200
+
+    Merge pull request #15 from BartekLabrync/11_ReservationsController
+    
+    11_ReservationsController
+
+[33mcommit 726a3910b101dcde503499fdd642573bcc7eb7fa[m[33m ([m[1;31morigin/11_ReservationsController[m[33m)[m
+Merge: 3ac6b60 49090ee
+Author: ololip <40671061+ololip@users.noreply.github.com>
+Date:   Sun Jul 23 12:59:44 2023 +0200
+
+    Merge branch 'master' into 11_ReservationsController
+
+[33mcommit 49090ee37c4d8e3c0e1b14ac18cffa7a9e556569[m
+Merge: 434d79b 03c0dd5
+Author: ololip <40671061+ololip@users.noreply.github.com>
+Date:   Sun Jul 23 12:52:25 2023 +0200
+
+    Merge pull request #14 from BartekLabrync/12_RelacyjneModele
+    
+    12_RelacyjneModele
+
+[33mcommit 3ac6b60866cdf55ef22f6e0cc044b2f949b391c7[m[33m ([m[1;32m11_ReservationsController[m[33m)[m
+Author: BartekLabrync <barteklabrync7@gmail.com>
+Date:   Sun Jul 23 12:49:59 2023 +0200
+
+    11_ReservationsController
+
+[33mcommit 03c0dd5a0cf4270b163d4100deb5eaa35d803ff4[m[33m ([m[1;31morigin/12_RelacyjneModele[m[33m)[m
+Author: ololip <oliwerlipinski96@gmail.com>
+Date:   Sun Jul 23 11:46:12 2023 +0200
+
+    12_RelacyjneModele
+
+[33mcommit 434d79bd67f7bebf042a00d22bfe9bf6827fbf45[m
+Merge: 85b31c2 0aee0e8
+Author: ololip <40671061+ololip@users.noreply.github.com>
+Date:   Sun Jul 23 09:42:09 2023 +0200
+
+    Merge pull request #13 from BartekLabrync/7_AddressInit
+    
+    7_AddressInit
+
+[33mcommit 0aee0e863399d0cc7004705495e0ee32e74a7914[m
+Author: JoaZom <119122131+JoaZom@users.noreply.github.com>
+Date:   Sun Jul 23 09:40:56 2023 +0200
+
+    7_AddressInit
+
+[33mcommit 85b31c27f8423711f5b005fd02b0d95bacbae6c3[m
+Merge: 243f966 bd2009d
+Author: ololip <40671061+ololip@users.noreply.github.com>
+Date:   Sun Jul 23 09:33:10 2023 +0200
+
+    Merge pull request #12 from BartekLabrync/6_RentCarInit
+    
+    6_CRUD + 4_CRUD
+
+[33mcommit bd2009d4b179b3f25c61a2a590a39a7d9941c0ab[m
+Author: AniaWoj <wojtalewicz.ania@gmail.com>
+Date:   Sun Jul 23 09:31:25 2023 +0200
+
+    6_CRUD + 4_CRUD
+
+[33mcommit 243f9667027e2fd04890ac4dc662a407f7f16b1a[m
+Merge: 1c58a3f d01cde3
+Author: BartekLabrync <114485088+BartekLabrync@users.noreply.github.com>
+Date:   Sat Jul 22 16:12:03 2023 +0200
+
+    Merge pull request #11 from BartekLabrync/8_ReservationsInit
+    
+    ReservationsInit
+
+[33mcommit d01cde39137058c27f501551c1554a20392083e5[m[33m ([m[1;32m8_ReservationsInit[m[33m)[m
+Author: BartekLabrync <barteklabrync7@gmail.com>
+Date:   Sat Jul 22 16:09:44 2023 +0200
+
+    8_ReservationsInit (dto, service, repository, models)
+
+[33mcommit 1c58a3f235a776bf378da114c6a7737f41345087[m
+Merge: b3f8972 b08cdac
+Author: AniaWoj <119073992+AniaWoj@users.noreply.github.com>
+Date:   Sat Jul 22 10:51:34 2023 +0200
+
+    Merge pull request #10 from BartekLabrync/6_RentCarInit
+    
+    6_RentCarInit
+
+[33mcommit b08cdac150fcd1f69a1e05f68a4d457ccc6c0fc9[m
+Author: AniaWoj <wojtalewicz.ania@gmail.com>
+Date:   Sat Jul 22 10:45:17 2023 +0200
+
+    DB_PASSWORD
+
+[33mcommit 1d2afc6c215520563e5ff724b0dbd907feef241a[m
+Author: BartekLabrync <barteklabrync7@gmail.com>
+Date:   Sat Jul 22 10:15:58 2023 +0200
+
+    8_ReservationsInit (dto, service, repository, models)
+
+[33mcommit b3f897262aafe689d67330c35a217ae0f1475468[m
+Merge: 1d7f855 c6dbd32
+Author: ololip <40671061+ololip@users.noreply.github.com>
+Date:   Wed Jul 19 18:45:13 2023 +0200
+
+    Merge pull request #8 from BartekLabrync/5_mainRental
+    
+    5_mainRental
+
+[33mcommit c6dbd3216dcf343c0357d0ab95e53dc4d0da3a7c[m[33m ([m[1;32m5_mainRental[m[33m)[m
+Author: BartekLabrync <barteklabrync7@gmail.com>
+Date:   Wed Jul 19 18:42:04 2023 +0200
+
+    5_mainRental (dto, service, repository, models)
+
+[33mcommit a0b5236f38a19e72b74c1542da8621db21b130a5[m
+Merge: 1d7f855 8925bb2
+Author: BartekLabrync <barteklabrync7@gmail.com>
+Date:   Wed Jul 19 18:40:18 2023 +0200
+
+    Merge branch '5_mainRental'
+
+[33mcommit 8925bb2ce28f79fae6846e37a4481dde6263d20b[m
+Author: BartekLabrync <barteklabrync7@gmail.com>
+Date:   Wed Jul 19 18:38:12 2023 +0200
+
+    5_mainRental (dto, service, repository, models)
+
+[33mcommit 1d7f8553f5bc8dbd164283d86f48b80293affd9f[m
+Merge: f1f4d21 2dafa40
+Author: ololip <40671061+ololip@users.noreply.github.com>
+Date:   Wed Jul 19 18:32:54 2023 +0200
+
+    Merge pull request #7 from BartekLabrync/6_RentCarInit
+    
+    6_RentCarInit
+
+[33mcommit 2dafa405eb63d1f8db936c1f25854

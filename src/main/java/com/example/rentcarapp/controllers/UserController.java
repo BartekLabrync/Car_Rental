@@ -25,19 +25,19 @@ public class UserController {
         return ResponseEntity.ok(userDto);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<UserDto>> getAllUsers () {
         List<UserDto> users = userService.getAllUsers();
         return ResponseEntity.ok(users);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("update-User")
     public ResponseEntity<UserDto> updateUser (@RequestBody UpdateUserRequest updateUserRequest, @PathVariable long id) {
         userService.updateUser(updateUserRequest);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/create-User")
     public ResponseEntity<UserDto> createUser (@RequestBody CreateUserRequest createUserRequest) {
         UserDto userDto = userService.createUser(createUserRequest);
         return ResponseEntity.ok(userDto);
@@ -49,13 +49,13 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/login")
-    public String loginUser(@RequestBody LoginUserDto loginUserDto) {
-        if ("admin".equals(loginUserDto.getLogin()) && "password".equals(loginUserDto.getPassword())) {
-            return "Logowanie udane!";
-        } else {
-            return "Błędny login lub hasło.";
-        }
-
-    }
+//    @PostMapping("/login")
+//    public String loginUser(@RequestBody LoginUserDto loginUserDto) {
+//        if ("admin".equals(loginUserDto.getLogin()) && "password".equals(loginUserDto.getPassword())) {
+//            return "Logowanie udane!";
+//        } else {
+//            return "Błędny login lub hasło.";
+//        }
+//
+//    }
 }

@@ -25,20 +25,20 @@ public class CarController {
         return ResponseEntity.ok(carById);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<CarDto>> getAllCars () {
         List<CarDto> cars = carService.getAllCars();
         return ResponseEntity.ok(cars);
     }
 
-    @PutMapping
+    @PutMapping("/create-car")
     public ResponseEntity<CarDto> createCar (@RequestBody CreateCarRequest createCarRequest) {
         CarDto carDto = carService.createCar(createCarRequest);
         return ResponseEntity.ok(carDto);
     }
 
 
-    @PostMapping
+    @PostMapping("/update-car")
     public ResponseEntity<CarDto> updateCar (@PathVariable long id, @RequestBody UpdateCarRequest updateCarRequest) {
         carService.updateCar(id, updateCarRequest);
         return new ResponseEntity<>(HttpStatus.OK);

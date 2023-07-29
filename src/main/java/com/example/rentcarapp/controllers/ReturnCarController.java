@@ -22,18 +22,18 @@ public class ReturnCarController {
         ReturnCarDto returnCarById = returnCarService.read(id);
         return ResponseEntity.ok(returnCarById);
     }
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<ReturnCarDto>> getAllReturnCars(){
         List<ReturnCarDto> returnCars = returnCarService.readAll();
         return ResponseEntity.ok(returnCars);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("update-ReturnCar")
     public ResponseEntity<ReturnCarDto> updateReturnCar(@RequestBody UpdateReturnCarRequest updateReturnCarRequest){
        returnCarService.update(updateReturnCarRequest);
        return new ResponseEntity<>(HttpStatus.OK);
     }
-    @PostMapping
+    @PostMapping("/create-ReturnCar")
     public ResponseEntity<ReturnCarDto> createReturnCar(@RequestBody CreateReturnCarRequest createReturnCarRequest) {
         ReturnCarDto returnCarDto = returnCarService.create(createReturnCarRequest);
         return  ResponseEntity.ok(returnCarDto);

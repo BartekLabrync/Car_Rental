@@ -24,19 +24,19 @@ public class BranchController {
         return ResponseEntity.ok(branchById);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<BranchDto>> getAllBranches () {
         List<BranchDto> branch = branchService.getAllBranches();
         return ResponseEntity.ok(branch);
     }
 
-    @PutMapping
+    @PutMapping("/create-branch")
     public ResponseEntity<BranchDto> createBranch (@RequestBody CreateBranchRequest createBranchRequest) {
         BranchDto branchDto = branchService.createBranch(createBranchRequest);
         return ResponseEntity.ok(branchDto);
     }
 
-    @PostMapping
+    @PostMapping("/update-branch")
     public ResponseEntity<BranchDto> updateBranch (@PathVariable long id, @RequestBody UpdateBranchRequest updateBranchRequest) {
         branchService.updateBranch(id, updateBranchRequest);
         return new ResponseEntity<>(HttpStatus.OK);

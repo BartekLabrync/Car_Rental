@@ -25,24 +25,23 @@ public class MainRentalController {
         return ResponseEntity.ok(mainRentalById);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<MainRentalDto>> getAllMainRentals () {
         List<MainRentalDto> mainRental = mainRentalService.getAllMainRentals();
         return ResponseEntity.ok(mainRental);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/update-mainRental")
     public ResponseEntity<MainRentalDto> updateMainRental (@PathVariable long id, @RequestBody UpdateMainRentalRequest updateMainRentalRequest) {
         mainRentalService.updateMainRentals(id, updateMainRentalRequest);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/create-mainRental")
     public ResponseEntity<MainRentalDto> createMainRental (@RequestBody CreateMainRentalRequest createMainRentalRequest) {
         MainRentalDto mainRentalDto = mainRentalService.createMainRentals(createMainRentalRequest);
         return ResponseEntity.ok(mainRentalDto);
     }
-
 
     @DeleteMapping("{id}")
     public ResponseEntity deleteMainRental (@PathVariable long id) {

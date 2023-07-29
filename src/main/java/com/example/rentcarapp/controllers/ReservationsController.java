@@ -27,7 +27,7 @@ public class ReservationsController {
 
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<ReservationDto>> getAllReservations() {
 
         List<ReservationDto> reservations = reservationsService.getAllReservations();
@@ -35,13 +35,13 @@ public class ReservationsController {
 
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/update-Reservation")
     public ResponseEntity<ReservationDto> updateReservation(@PathVariable long id, @RequestBody UpdateReservationsRequest updateReservationsRequest) {
         reservationsService.updateReservation(id, updateReservationsRequest);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/create-Reservation")
     public ResponseEntity<ReservationDto> createReservation (@RequestBody CreateReservationsRequest createReservationsRequest) {
         ReservationDto reservationDto = reservationsService.createReservation(createReservationsRequest);
         return ResponseEntity.ok(reservationDto);

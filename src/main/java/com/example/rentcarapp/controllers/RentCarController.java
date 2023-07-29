@@ -24,17 +24,17 @@ public class RentCarController {
         RentCarDto rentCarById = rentCarService.read(id);
         return ResponseEntity.ok(rentCarById);
     }
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<RentCarDto>> getAllRentCars() {
         List<RentCarDto> rentCars = rentCarService.readAll();
         return ResponseEntity.ok(rentCars);
     }
-    @PutMapping("{id}")
+    @PutMapping("/update-RentCar")
     public ResponseEntity<RentCarDto> updateRentCar (@RequestBody UpdateRentCarRequest updateRentCarRequest){
         rentCarService.update(updateRentCarRequest);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-    @PostMapping
+    @PostMapping("/create-RentCar")
     public ResponseEntity<RentCarDto> createRentCar (@RequestBody CreateRentCarRequest createRentCarRequest){
         RentCarDto rentCarDto = rentCarService.create(createRentCarRequest);
         return ResponseEntity.ok(rentCarDto);
