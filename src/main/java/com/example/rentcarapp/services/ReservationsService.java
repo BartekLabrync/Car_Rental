@@ -87,48 +87,80 @@ public class ReservationsService {
 
 
 
-    public Reservations convertToEntity (ReservationDto dto) {
+    public Reservations convertToEntity(ReservationDto dto) {
         Reservations reservations = new Reservations();
         reservations.setId(dto.getId());
         reservations.setReservDate(dto.getReservDate());
-        reservations.setClient(userRepository.getReferenceById(dto.getClientId()));
-        reservations.setCar(rentCarRepository.getReferenceById(dto.getCarId()));
+
+        if (dto.getClientId() != null) {
+            reservations.setClient(userRepository.getReferenceById(dto.getClientId()));
+        }
+        if (dto.getCarId() != null) {
+            reservations.setCar(rentCarRepository.getReferenceById(dto.getCarId()));
+        }
+        if (dto.getReservBranchId() != null) {
+            reservations.setReservBranch(branchRepository.getReferenceById(dto.getReservBranchId()));
+        }
+        if (dto.getBranchReturnId() != null) {
+            reservations.setBranchReturn(branchRepository.getReferenceById(dto.getBranchReturnId()));
+        }
+
         reservations.setDateFor(dto.getDateFor());
         reservations.setDateTo(dto.getDateTo());
-        reservations.setReservBranch(branchRepository.getReferenceById(dto.getReservBranchId()));
-        reservations.setBranchReturn(branchRepository.getReferenceById(dto.getReservBranchId()));
         reservations.setAmount(dto.getAmount());
         reservations.setParentId(dto.getParentId());
         return reservations;
     }
 
-    public Reservations fromConvertToEntity (CreateReservationsRequest dto) {
+    public Reservations fromConvertToEntity(CreateReservationsRequest dto) {
         Reservations reservations = new Reservations();
         reservations.setId(dto.getId());
         reservations.setReservDate(dto.getReservDate());
-        reservations.setClient(userRepository.getReferenceById(dto.getClientId()));
-        reservations.setCar(rentCarRepository.getReferenceById(dto.getCarId()));
+
+        if (dto.getClientId() != 0) {
+            reservations.setClient(userRepository.getReferenceById(dto.getClientId()));
+        }
+        if (dto.getCarId() != 0) {
+            reservations.setCar(rentCarRepository.getReferenceById(dto.getCarId()));
+        }
+        if (dto.getReservBranchId() != 0) {
+            reservations.setReservBranch(branchRepository.getReferenceById(dto.getReservBranchId()));
+        }
+        if (dto.getBranchReturnId() != 0) {
+            reservations.setBranchReturn(branchRepository.getReferenceById(dto.getBranchReturnId()));
+        }
+
         reservations.setDateFor(dto.getDateFor());
         reservations.setDateTo(dto.getDateTo());
-        reservations.setReservBranch(branchRepository.getReferenceById(dto.getReservBranchId()));
-        reservations.setBranchReturn(branchRepository.getReferenceById(dto.getReservBranchId()));
         reservations.setAmount(dto.getAmount());
         reservations.setParentId(dto.getParentId());
         return reservations;
     }
 
-    public Reservations convertToEntity (UpdateReservationsRequest dto) {
+    public Reservations convertToEntity(UpdateReservationsRequest dto) {
         Reservations reservations = new Reservations();
         reservations.setId(dto.getId());
         reservations.setReservDate(dto.getReservDate());
-        reservations.setClient(userRepository.getReferenceById(dto.getClientId()));
-        reservations.setCar(rentCarRepository.getReferenceById(dto.getCarId()));
+
+        if (dto.getClientId() != 0) {
+            reservations.setClient(userRepository.getReferenceById(dto.getClientId()));
+        }
+        if (dto.getCarId() != 0) {
+            reservations.setCar(rentCarRepository.getReferenceById(dto.getCarId()));
+        }
+        if (dto.getReservBranchId() != 0) {
+            reservations.setReservBranch(branchRepository.getReferenceById(dto.getReservBranchId()));
+        }
+        if (dto.getBranchReturnId() != 0) {
+            reservations.setBranchReturn(branchRepository.getReferenceById(dto.getBranchReturnId()));
+        }
+
         reservations.setDateFor(dto.getDateFor());
         reservations.setDateTo(dto.getDateTo());
-        reservations.setReservBranch(branchRepository.getReferenceById(dto.getReservBranchId()));
-        reservations.setBranchReturn(branchRepository.getReferenceById(dto.getReservBranchId()));
         reservations.setAmount(dto.getAmount());
         reservations.setParentId(dto.getParentId());
         return reservations;
     }
+
+
 }
