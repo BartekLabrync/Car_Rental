@@ -6,38 +6,38 @@
   <title>Title</title>
 </head>
 <body>
-<form th:action="@{/addCar}" method="post" th:object="${createBranchRequest}">
+<form th:action="@{/addCar}" method="post" th:object="${createCarRequest}">
   <div class="mb-3">
     <label class="form-label">Id pracownika</label>
-    <input class="form-control" type="number" th:field="{employee}" />
+    <input class="form-control" type="number" th:field="*{id}" />
   </div>
   <div class="mb-3">
     <label class="form-label">Branch</label>
-    <input class="form-control" type="date" th:field="{rentalDate}" />
+    <input class="form-control" type="text" th:field="*{brand}" />
   </div>
   <div class="mb-3">
     <label class="form-label">Name</label>
-    <input class="form-control" type="text" th:field="{comments}" />
+    <input class="form-control" type="text" th:field="*{name}" />
   </div>
   <div class="mb-3">
     <label class="form-label">Body Type</label>
-    <input class="form-control" type="number" th:field="{reservationId}" />
+    <input class="form-control" type="text" th:field="*{bodyType}" />
   </div>
   <div class="mb-3">
     <label class="form-label">Year</label>
-    <input class="form-control" type="number" th:field="{reservationId}" />
+    <input class="form-control" type="number" th:field="*{year}" />
   </div>
   <div class="mb-3">
     <label class="form-label">Color</label>
-    <input class="form-control" type="number" th:field="{reservationId}" />
+    <input class="form-control" type="text" th:field="*{color}" />
   </div>
   <div class="mb-3">
     <label class="form-label">Mileage</label>
-    <input class="form-control" type="number" th:field="{reservationId}" />
+    <input class="form-control" type="number" th:field="*{mileage}" />
   </div>
   <div class="mb-3">
     <label class="form-label">reservation</label>
-    <input class="form-control" type="number" th:field="{reservationId}" />
+    <input class="form-control" type="number" th:field="*{reservation_id}" />
   </div>
   <button class="btn btn-primary" type="submit">Zapisz</button>
 </form>
