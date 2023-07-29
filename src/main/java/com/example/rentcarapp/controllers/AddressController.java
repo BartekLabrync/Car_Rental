@@ -17,7 +17,7 @@ public class AddressController {
     @GetMapping("addresses")
     public String getAddresses(Model model){
         model.addAttribute("addresses", addressService.readAll());
-        return "addAddress";
+        return "addresses";
     }
 
     @GetMapping("/addAddress")

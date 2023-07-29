@@ -5,22 +5,22 @@
   <title>Title</title>
 </head>
 <body>
-<table class="table">
-  <thead>
-  <tr>
-    <th scope="col">ID</th>
-    <th scope="col">POST CODE</th>
-    <th scope="col">Street</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr th:each="address:${addresses}">
-    <th scope="row" th:text="${address.getId()}"></th>
-    <td th:text="${address.getPostCode()}"></td>
-    <td th:text="${address.getStreet()}"></td>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">POST CODE</th>
+      <th scope="col">Street</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="address:${addresses}">
+      <th scope="row" th:text="${address.getId()}"></th>
+      <td th:text="${address.getPostCode()}"></td>
+      <td th:text="${address.getStreet()}"></td>
 
-  </tr>
-  </tbody>
-</table>
+    </tr>
+    </tbody>
+  </table>
 </body>
 </html>
