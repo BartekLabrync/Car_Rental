@@ -14,6 +14,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class AddressController {
     private final AddressService addressService;
 
+    @GetMapping("addresses")
+    public String getAddresses(Model model){
+        model.addAttribute("addresses", addressService.readAll());
+        return "addresses";
+    }
+
     @GetMapping("/addAddress")
     public String addAddress(Model model){
         model.addAttribute("createAddressRequest", new CreateAddressRequest());
