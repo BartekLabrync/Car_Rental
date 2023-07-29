@@ -12,24 +12,24 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class ReservationDto {
 
-    private long id;
+    private Long id;
 
     private LocalDate reservDate;
 
-    private long clientId;
+    private Long clientId;
 
-    private long carId;
+    private Long carId;
 
     private LocalDate dateFor;
 
     private LocalDate dateTo;
 
-    private long reservBranchId;
+    private Long reservBranchId;
 
-    private long branchReturnId;
+    private Long branchReturnId;
 
     private BigDecimal amount;
 
-    private long parentId;
+    private Long parentId;
 
 }
