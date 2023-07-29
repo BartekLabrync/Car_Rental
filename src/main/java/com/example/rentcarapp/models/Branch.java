@@ -21,7 +21,7 @@ public class Branch {
     @OneToOne
     private Address address;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "branchId")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "branch")
     private List<User> staffList;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "branchId")

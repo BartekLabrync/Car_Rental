@@ -6,10 +6,10 @@
   <title>Title</title>
 </head>
 <body>
-<form th:action="@{/addCar}" method="post" th:object="${createBranchRequest}">
+<form th:action="@{/addCar}" method="post" th:object="${createCarRequest}">
   <div class="mb-3">
     <label class="form-label">Id pracownika</label>
-    <input class="form-control" type="number" th:field="{employee}" />
+    <input class="form-control" type="number" th:field="{id}" />
   </div>
   <div class="mb-3">
     <label class="form-label">Branch</label>
