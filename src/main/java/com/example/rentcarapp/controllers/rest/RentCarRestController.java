@@ -3,11 +3,11 @@ package com.example.rentcarapp.controllers.rest;
 import com.example.rentcarapp.dto.rentCar.CreateRentCarRequest;
 import com.example.rentcarapp.dto.rentCar.RentCarDto;
 import com.example.rentcarapp.dto.rentCar.UpdateRentCarRequest;
-import com.example.rentcarapp.services.RentCar.RentCarService;
+import com.example.rentcarapp.services.rentCar.RentCarService;
+
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/rentCar")
 @AllArgsConstructor
-public class RentCarController {
+public class RentCarRestController {
     private final RentCarService rentCarService;
 
     @GetMapping("{id}")

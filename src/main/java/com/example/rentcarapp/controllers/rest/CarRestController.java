@@ -3,7 +3,6 @@ package com.example.rentcarapp.controllers.rest;
 import com.example.rentcarapp.dto.car.CarDto;
 import com.example.rentcarapp.dto.car.CreateCarRequest;
 import com.example.rentcarapp.dto.car.UpdateCarRequest;
-import com.example.rentcarapp.models.Car;
 import com.example.rentcarapp.services.CarService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/car")
 @AllArgsConstructor
-public class CarController {
+public class CarRestController {
 
     private final CarService carService;
 

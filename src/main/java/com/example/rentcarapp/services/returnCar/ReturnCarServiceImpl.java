@@ -1,4 +1,4 @@
-package com.example.rentcarapp.services.ReturnCar;
+package com.example.rentcarapp.services.returnCar;
 
 import com.example.rentcarapp.dto.returnCar.CreateReturnCarRequest;
 import com.example.rentcarapp.dto.returnCar.ReturnCarDto;

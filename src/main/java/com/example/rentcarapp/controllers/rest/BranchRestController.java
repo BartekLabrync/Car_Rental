@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/branch")
 @AllArgsConstructor
-public class BranchController {
+public class BranchRestController {
 
     private final BranchService branchService;
 
