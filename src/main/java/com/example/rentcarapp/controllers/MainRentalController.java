@@ -14,16 +14,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class MainRentalController {
     private final MainRentalService mainRentalService;
 
-    @GetMapping("/addMainRentals")
+    @GetMapping("/mainRentals")
+    public String getMainRentals(Model model){
+        model.addAttribute("mainRentals", mainRentalService.getAllMainRentals());
+        return "mainRentals";
+    }
+
+    @GetMapping("/addMainRental")
     public String addMainRental(Model model){
         model.addAttribute("createMainRental", new CreateMainRentalRequest());
-        return "addMainRental";
+        return "AddMainRental";
     }
     @PostMapping("/addMainRental")
     public String addMainRental(
             CreateMainRentalRequest createMainRentalRequest,
             Model model){
-        MainRentalDto mainRentalDto = mainRentalService.createMainRentals(createMainRentalRequest);
-        return "redirect:addMainRental";
+        mainRentalService.createMainRentals(createMainRentalRequest);
+        return "redirect:AddMainRental";
     }
 }
