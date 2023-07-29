@@ -13,7 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 @AllArgsConstructor
 public class BranchController {
     private final BranchService branchService;
-
+    @GetMapping("/branches")
+    public String getBranches(Model model){
+        model.addAttribute("branches", branchService.getAllBranches());
+        return "branches";
+    }
     @GetMapping("/addBranch")
     public String addBranch(Model model){
         model.addAttribute("createBranchRequest", new CreateBranchRequest());
