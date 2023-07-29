@@ -18,6 +18,7 @@ public class BranchController {
 
     private final BranchService branchService;
 
+
     @GetMapping("{id}")
     public ResponseEntity<BranchDto> getBranchById (@PathVariable long id) {
         BranchDto branchById = branchService.getBranchById(id);

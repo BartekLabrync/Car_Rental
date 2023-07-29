@@ -28,7 +28,7 @@ public class ReturnCarController {
         return ResponseEntity.ok(returnCars);
     }
 
-    @PutMapping("update-ReturnCar")
+    @PutMapping("update/{id}")
     public ResponseEntity<ReturnCarDto> updateReturnCar(@RequestBody UpdateReturnCarRequest updateReturnCarRequest){
        returnCarService.update(updateReturnCarRequest);
        return new ResponseEntity<>(HttpStatus.OK);

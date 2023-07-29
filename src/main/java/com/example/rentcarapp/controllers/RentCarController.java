@@ -16,6 +16,7 @@ import java.util.List;
 @RequestMapping("/rentCar")
 @AllArgsConstructor
 public class RentCarController {
+
     private final RentCarService rentCarService;
 
     @GetMapping("{id}")

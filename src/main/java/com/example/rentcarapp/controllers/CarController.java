@@ -38,7 +38,7 @@ public class CarController {
     }
 
 
-    @PostMapping("/update-car")
+    @PostMapping("/update/{id}")
     public ResponseEntity<CarDto> updateCar (@PathVariable long id, @RequestBody UpdateCarRequest updateCarRequest) {
         carService.updateCar(id, updateCarRequest);
         return new ResponseEntity<>(HttpStatus.OK);

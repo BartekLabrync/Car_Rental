@@ -31,7 +31,7 @@ public class MainRentalController {
         return ResponseEntity.ok(mainRental);
     }
 
-    @PutMapping("/update-mainRental")
+    @PutMapping("/update/{id}")
     public ResponseEntity<MainRentalDto> updateMainRental (@PathVariable long id, @RequestBody UpdateMainRentalRequest updateMainRentalRequest) {
         mainRentalService.updateMainRentals(id, updateMainRentalRequest);
         return new ResponseEntity<>(HttpStatus.OK);

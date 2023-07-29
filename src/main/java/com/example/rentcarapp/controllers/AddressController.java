@@ -23,24 +23,24 @@ public class AddressController {
         return ResponseEntity.ok(addressById);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<AddressDto>> getAllAddresses(){
         List<AddressDto> addresses = addressService.readAll();
         return ResponseEntity.ok(addresses);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<AddressDto> updateAddress(@RequestBody UpdateAddressRequest updateAddressRequest){
         addressService.update(updateAddressRequest);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<AddressDto> createAddress(@RequestBody CreateAddressRequest createAddressRequest){
         AddressDto addressDto = addressService.create(createAddressRequest);
         return ResponseEntity.ok(addressDto);
     }
-    @DeleteMapping("{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity deleteAddress(@PathVariable long id){
         addressService.delete(id);
         return ResponseEntity.ok().build();

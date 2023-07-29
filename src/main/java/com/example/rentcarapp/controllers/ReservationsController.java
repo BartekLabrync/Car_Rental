@@ -35,7 +35,7 @@ public class ReservationsController {
 
     }
 
-    @PutMapping("/update-Reservation")
+    @PutMapping("/update/{id}")
     public ResponseEntity<ReservationDto> updateReservation(@PathVariable long id, @RequestBody UpdateReservationsRequest updateReservationsRequest) {
         reservationsService.updateReservation(id, updateReservationsRequest);
         return new ResponseEntity<>(HttpStatus.OK);
