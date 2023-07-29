@@ -30,6 +30,6 @@ public class MainRentalController {
             CreateMainRentalRequest createMainRentalRequest,
             Model model){
         mainRentalService.createMainRentals(createMainRentalRequest);
-        return "redirect:AddMainRental";
+        return "redirect:addMainRental";
     }
 }
