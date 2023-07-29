@@ -1,4 +1,4 @@
-package com.example.rentcarapp.services;
+package com.example.rentcarapp.services.rentCar;
 
 import com.example.rentcarapp.dto.rentCar.CreateRentCarRequest;
 import com.example.rentcarapp.dto.rentCar.RentCarDto;
@@ -7,6 +7,7 @@ import com.example.rentcarapp.models.RentCar;
 import com.example.rentcarapp.repositories.RentCarRepository;
 import com.example.rentcarapp.repositories.ReservationsRepository;
 import com.example.rentcarapp.repositories.UserRepository;
+import com.example.rentcarapp.services.rentCar.RentCarService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,7 @@ import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
-public class RentCarServiceImpl implements RentCarService{
+public class RentCarServiceImpl implements RentCarService {
     private final RentCarRepository rentCarRepository;
     private final UserRepository userRepository;
     private final ReservationsRepository reservationsRepository;

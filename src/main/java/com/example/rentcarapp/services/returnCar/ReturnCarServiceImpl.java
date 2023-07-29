@@ -1,4 +1,4 @@
-package com.example.rentcarapp.services;
+package com.example.rentcarapp.services.returnCar;
 
 import com.example.rentcarapp.dto.returnCar.CreateReturnCarRequest;
 import com.example.rentcarapp.dto.returnCar.ReturnCarDto;
@@ -7,6 +7,7 @@ import com.example.rentcarapp.models.ReturnCar;
 import com.example.rentcarapp.repositories.ReservationsRepository;
 import com.example.rentcarapp.repositories.ReturnCarRepository;
 import com.example.rentcarapp.repositories.UserRepository;
+import com.example.rentcarapp.services.returnCar.ReturnCarService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

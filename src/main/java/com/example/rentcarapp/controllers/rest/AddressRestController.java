@@ -3,7 +3,8 @@ package com.example.rentcarapp.controllers.rest;
 import com.example.rentcarapp.dto.address.AddressDto;
 import com.example.rentcarapp.dto.address.CreateAddressRequest;
 import com.example.rentcarapp.dto.address.UpdateAddressRequest;
-import com.example.rentcarapp.services.AddressService;
+
+import com.example.rentcarapp.services.address.AddressService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/address")
 @AllArgsConstructor
-public class AddressController {
+public class AddressRestController {
     private final AddressService addressService;
 
     @GetMapping("{id}")

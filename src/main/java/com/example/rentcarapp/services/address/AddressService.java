@@ -1,4 +1,4 @@
-package com.example.rentcarapp.services;
+package com.example.rentcarapp.services.address;
 
 import com.example.rentcarapp.dto.address.AddressDto;
 import com.example.rentcarapp.dto.address.CreateAddressRequest;
