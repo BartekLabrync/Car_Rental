@@ -81,7 +81,7 @@ public class BranchService {
         if(addressRepository.existsById(dto.getAddress())){
             branch.setAddress(addressRepository.getReferenceById(dto.getAddress()));
         } else {
-            branch.setAddress(addressRepository.getReferenceById(null));
+            branch.setAddress(null);
         }
         branch.setStaffList(null);
         branch.setListOfCurrentlyAvailCars(null);
