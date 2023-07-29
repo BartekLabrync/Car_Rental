@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class BranchController {
     private final BranchService branchService;
 
-    @GetMapping("/addBranch")
+    @GetMapping("/addBranches")
     public String addBranch(Model model){
         model.addAttribute("createBranchRequest", new CreateBranchRequest());
         return "addBranch";

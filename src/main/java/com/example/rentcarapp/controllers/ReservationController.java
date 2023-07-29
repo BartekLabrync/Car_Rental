@@ -14,6 +14,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class ReservationController {
     private final ReservationsService reservationsService;
 
+    @GetMapping("reservations")
+    public String getReservations(Model model){
+        model.addAttribute("reservations", reservationsService.getAllReservations());
+        return "reservations";
+    }
+
     @GetMapping("/addReservation")
     public String addReservation(Model model){
         model.addAttribute("createReservationsRequest", new CreateReservationsRequest());

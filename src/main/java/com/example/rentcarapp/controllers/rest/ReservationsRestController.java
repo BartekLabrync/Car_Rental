@@ -27,7 +27,7 @@ public class ReservationsRestController {
 
     }
 
-    @GetMapping
+    @GetMapping("/reservations")
     public ResponseEntity<List<ReservationDto>> getAllReservations() {
 
         List<ReservationDto> reservations = reservationsService.getAllReservations();

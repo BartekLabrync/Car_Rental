@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">RESERVATION DATE</th>
+    <th scope="col">CLIENTID</th>
+    <th scope="col">CARID</th>
+    <th scope="col">DATE FOR</th>
+    <th scope="col">DATE TO</th>
+    <th scope="col">RESERVATION BRANCH ID</th>
+    <th scope="col">BRANCH RETURN ID</th>
+    <th scope="col">AMOUNT</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="reservation:${reservations}">
+    <th scope="row" th:text="${reservation.getId()}"></th>
+    <td th:text="${reservation.getReservDate()}"></td>
+    <td th:text="${reservation.getClientId()}"></td>
+    <td th:text="${reservation.getCarId()}"></td>
+    <td th:text="${reservation.getDateFor()}"></td>
+    <td th:text="${reservation.getDateTo()}"></td>
+    <td th:text="${reservation.getReservBranchId()}"></td>
+    <td th:text="${reservation.getBranchReturnId()}"></td>
+    <td th:text="${reservation.getAmount()}"></td>
+
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
