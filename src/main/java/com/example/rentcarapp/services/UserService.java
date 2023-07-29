@@ -54,6 +54,10 @@ public class UserService {
 
 
     public UserDto convertToDto (User user) {
+        long branchId = 0L;
+        if(user.getBranch() != null){
+            branchId = user.getBranch().getId();
+        }
         UserDto dto = new UserDto();
         dto.setId(user.getId());
         dto.setFirstName(user.getFirstName());
@@ -61,12 +65,16 @@ public class UserService {
         dto.setLogin(user.getLogin());
         dto.setPassword(user.getPassword());
         dto.setEmail(user.getEmail());
-        dto.setBranchId(user.getBranch());
+        dto.setBranchId(branchId);
         //dto.setAddressId(user.getAddressId());
         return dto;
     }
 
-    public User convertToEntity (UserDto dto) {
+    public User toModel (UserDto dto) {
+        Branch branch = null;
+        if(branchRepository.existsById(dto.getBranchId())){
+            branch = branchRepository.getReferenceById(dto.getBranchId());
+        }
         User user = new User();
         user.setId(dto.getId());
         user.setFirstName(dto.getFirstName());
@@ -74,7 +82,7 @@ public class UserService {
         user.setLogin(dto.getLogin());
         user.setPassword(dto.getPassword());
         user.setEmail(dto.getEmail());
-        user.setBranch(dto.getBranchId());
+        user.setBranch(branch);
         //user.setAddressId(dto.getAddressId());
         return user;
     }

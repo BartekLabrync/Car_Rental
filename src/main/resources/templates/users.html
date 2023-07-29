@@ -15,20 +15,18 @@
     <th scope="col">Login</th>
     <th scope="col">Hasło</th>
     <th scope="col">Email</th>
-    <th scope="col">ID Oddziału</th>
-    <th scope="col">ID Adresu</th>
+    <th scope="col">ID Odziału</th>
   </tr>
   </thead>
   <tbody>
   <tr th:each="user:${users}">
     <th scope="row" th:text="${user.getId()}"></th>
     <td th:text="${user.getFirstName()}"></td>
-    <td th:text="${user.getLastName()()}"></td>
-    <td th:text="${user.getLogin()()}"></td>
-    <td th:text="${user.getPassword()()}"></td>
-    <td th:text="${user.getEmail()()}"></td>
-    <td th:text="${user.getBranchId()()}"></td>
-    <td th:text="${user.getAddressId()()}"></td>
+    <td th:text="${user.getLastName()}"></td>
+    <td th:text="${user.getLogin()}"></td>
+    <td th:text="${user.getPassword()}"></td>
+    <td th:text="${user.getEmail()}"></td>
+    <td th:text="${user.getBranchId()}"></td>
 
   </tr>
   </tbody>

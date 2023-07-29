@@ -16,8 +16,8 @@ public class UserDto {
     private String login;
     private String password;
     private String email;
-    private Branch branchId;
-    private long addressId;
+    private long branchId;
+    //private long addressId;
 
 
 }
