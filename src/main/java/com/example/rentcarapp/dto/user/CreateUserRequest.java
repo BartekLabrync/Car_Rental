@@ -16,6 +16,6 @@ public class CreateUserRequest {
     private String login;
     private String password;
     private String email;
-    private long addressId;
+    private long branchId;
 
 }

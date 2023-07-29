@@ -6,28 +6,20 @@
     <title>Title</title>
 </head>
 <body>
-<form th:action="@{/addBranch}" method="post" th:object="${createBranchRequest}">
-    <div class="mb-3">
-        <label class="form-label">Id pracownika</label>
-        <input class="form-control" type="number" th:field="{employee}" />
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Adres</label>
-        <input class="form-control" type="date" th:field="{rentalDate}" />
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Staff List</label>
-        <input class="form-control" type="text" th:field="{comments}" />
-    </div>
-    <div class="mb-3">
-        <label class="form-label">list Of Currently AvailCars</label>
-        <input class="form-control" type="number" th:field="{reservationId}" />
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Main Rental</label>
-        <input class="form-control" type="number" th:field="{reservationId}" />
-    </div>
-    <button class="btn btn-primary" type="submit">Zapisz</button>
-</form>
+    <form th:action="@{/addBranch}" method="post" th:object="${createBranchRequest}">
+        <div class="mb-3">
+            <label class="form-label">Id pracownika</label>
+            <input class="form-control" type="number" th:field="*{id}" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Id adresu</label>
+            <input class="form-control" type="number" th:field="*{address}" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">mainRental</label>
+            <input class="form-control" type="number" th:field="*{mainRental}" />
+        </div>
+        <button class="btn btn-primary" type="submit">Zapisz</button>
+    </form>
 </body>
 </html>

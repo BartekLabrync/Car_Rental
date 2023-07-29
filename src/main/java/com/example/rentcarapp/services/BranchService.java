@@ -4,20 +4,23 @@ import com.example.rentcarapp.dto.branch.BranchDto;
 import com.example.rentcarapp.dto.branch.CreateBranchRequest;
 import com.example.rentcarapp.dto.branch.UpdateBranchRequest;
 import com.example.rentcarapp.models.Branch;
+import com.example.rentcarapp.repositories.AddressRepository;
 import com.example.rentcarapp.repositories.BranchRepository;
+import com.example.rentcarapp.repositories.MainRentalRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class BranchService {
 
     private final BranchRepository branchRepository;
+    private final AddressRepository addressRepository;
+    private final MainRentalRepository mainRentalRepository;
 
-    public BranchService(BranchRepository branchRepository) {
-        this.branchRepository = branchRepository;
-    }
 
     public List<BranchDto> getAllBranches() {
         return branchRepository.findAll()
@@ -75,10 +78,10 @@ public class BranchService {
     public Branch fromConvertToEntity(CreateBranchRequest dto) {
         Branch branch = new Branch();
         branch.setId(dto.getId());
-        branch.setAddress(dto.getAddress());
-        branch.setStaffList(dto.getStaffList());
-        branch.setListOfCurrentlyAvailCars(dto.getListOfCurrentlyAvailCars());
-        branch.setMainRental(dto.getMainRental());
+        branch.setAddress(addressRepository.getReferenceById(dto.getAddress()));
+//        branch.setStaffList(dto.getStaffList());
+//        branch.setListOfCurrentlyAvailCars(dto.getListOfCurrentlyAvailCars());
+        branch.setMainRental(mainRentalRepository.getReferenceById(dto.getMainRental()));
         //branch.setReservationId(dto.getReservationId());
         return branch;
     }

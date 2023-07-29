@@ -3,8 +3,11 @@ package com.example.rentcarapp.services;
 import com.example.rentcarapp.dto.user.CreateUserRequest;
 import com.example.rentcarapp.dto.user.UpdateUserRequest;
 import com.example.rentcarapp.dto.user.UserDto;
+import com.example.rentcarapp.models.Branch;
 import com.example.rentcarapp.models.User;
+import com.example.rentcarapp.repositories.BranchRepository;
 import com.example.rentcarapp.repositories.UserRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -12,13 +15,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class UserService {
 
     private final UserRepository userRepository;
+    private final BranchRepository branchRepository;
 
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     public List<UserDto> getAllUsers () {
         return userRepository.findAll()
@@ -34,7 +36,7 @@ public class UserService {
     }
 
     public UserDto createUser (CreateUserRequest createUserRequest) {
-        User user = fromConvertToEntity(createUserRequest);
+        User user = toModel(createUserRequest);
         user = userRepository.save(user);
         return convertToDto(user);
     }
@@ -59,8 +61,8 @@ public class UserService {
         dto.setLogin(user.getLogin());
         dto.setPassword(user.getPassword());
         dto.setEmail(user.getEmail());
-        dto.setBranchId(user.getBranchId());
-        dto.setAddressId(user.getAddressId());
+        dto.setBranchId(user.getBranch());
+        //dto.setAddressId(user.getAddressId());
         return dto;
     }
 
@@ -72,12 +74,16 @@ public class UserService {
         user.setLogin(dto.getLogin());
         user.setPassword(dto.getPassword());
         user.setEmail(dto.getEmail());
-        user.setBranchId(dto.getBranchId());
-        user.setAddressId(dto.getAddressId());
+        user.setBranch(dto.getBranchId());
+        //user.setAddressId(dto.getAddressId());
         return user;
     }
 
-    public User fromConvertToEntity (CreateUserRequest dto) {
+    public User toModel (CreateUserRequest dto) {
+        Branch branch = null;
+        if(branchRepository.existsById(dto.getBranchId())){
+            branch = branchRepository.getReferenceById(dto.getBranchId());
+        }
         User user = new User();
         user.setId(dto.getId());
         user.setFirstName(dto.getFirstName());
@@ -85,7 +91,8 @@ public class UserService {
         user.setLogin(dto.getLogin());
         user.setPassword(dto.getPassword());
         user.setEmail(dto.getEmail());
-        user.setAddressId(dto.getAddressId());
+        user.setBranch(branch);
+        //user.setAddressId(dto.getAddressId());
         return user;
     }
 
@@ -97,7 +104,7 @@ public class UserService {
         user.setLogin(dto.getLogin());
         user.setPassword(dto.getPassword());
         user.setEmail(dto.getEmail());
-        user.setAddressId(dto.getAddressId());
+        //user.setAddressId(dto.getAddressId());
         return user;
     }
 
