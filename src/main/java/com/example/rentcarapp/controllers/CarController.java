@@ -33,6 +33,6 @@ public class CarController {
             Model model){
         CarDto carDto = carService.createCar(createCarRequest);
 
-        return "redirect:AddCar";
+        return "redirect:addCar";
     }
 }

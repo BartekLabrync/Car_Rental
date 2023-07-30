@@ -62,7 +62,11 @@ public class CarService {
         dto.setColor(car.getColor());
         dto.setMileage(car.getMileage());
         //dto.setReservation_id(car.getReservation_id());
-        dto.setReservation_id(car.getReservation().getId());
+        if(car.getReservation()!=null){
+            dto.setReservation_id(car.getReservation().getId());
+        } else {
+            dto.setReservation_id(0L);
+        }
         return dto;
     }
 
