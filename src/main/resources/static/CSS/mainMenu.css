@@ -1,5 +1,14 @@
 body {
     background-image: url("../image/audiR8.jpg");
     background-size: 100% auto;
+}
+
+.car_image{
+    width: 400px;
+}
+
+td{
+    text-align: center;
+
 
 }
