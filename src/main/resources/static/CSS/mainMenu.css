@@ -78,4 +78,21 @@ form input[type="submit"]:hover {
     .form-container {
         width: 90%;
     }
+    background-size: 100% auto;
+}
+
+.car_image{
+    width: 400px;
+}
+
+.carTd{
+    text-align: center;
+    padding: 0 50px;
+    vertical-align: middle;
+    font-size: 30px;
+
+}
+
+.cars-table-container{
+    width: 1000px;
 }
