@@ -72,7 +72,7 @@ public class MainRentalService {
         if(addressRepository.existsById(dto.getContact_Address())){
             mainRental.setContact_Address(addressRepository.getReferenceById(dto.getContact_Address()));
         } else {
-            mainRental.setContact_Address(addressRepository.getReferenceById(dto.getContact_Address()));
+            mainRental.setContact_Address(null);
         }
         mainRental.setOwner(dto.getOwner());
         mainRental.setLogo(dto.getLogo());
@@ -86,7 +86,7 @@ public class MainRentalService {
         if(addressRepository.existsById(dto.getContact_Address())){
             mainRental.setContact_Address(addressRepository.getReferenceById(dto.getContact_Address()));
         } else {
-            mainRental.setContact_Address(addressRepository.getReferenceById(dto.getContact_Address()));
+            mainRental.setContact_Address(null);
         }
         mainRental.setOwner(dto.getOwner());
         mainRental.setLogo(dto.getLogo());
@@ -100,7 +100,7 @@ public class MainRentalService {
         if(addressRepository.existsById(dto.getContact_Address())){
             mainRental.setContact_Address(addressRepository.getReferenceById(dto.getContact_Address()));
         } else {
-            mainRental.setContact_Address(addressRepository.getReferenceById(dto.getContact_Address()));
+            mainRental.setContact_Address(null);
         }
         mainRental.setOwner(dto.getOwner());
         mainRental.setLogo(dto.getLogo());
