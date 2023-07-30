@@ -7,6 +7,7 @@
     <title>Samochody</title>
 </head>
 <body>
+<div class="container">
     <table class="table">
         <thead>
         <tr>
@@ -22,16 +23,17 @@
         <tbody>
         <tr th:each="car:${cars}">
             <td><img src="image/PlusAudi.jpg" class="car_image"></td>
-            <td th:text="${car.getBrand()}"></td>
-            <td th:text="${car.getName()}"></td>
-            <td th:text="${car.getBodyType()}"></td>
-            <td th:text="${car.getYear()}"></td>
-            <td th:text="${car.getColor()}"></td>
-            <td th:text="${car.getMileage()}"></td>
-            <td><button class="btn btn-primary" type="submit">Wybierz</button></td>
+            <td class="carTd" th:text="${car.getBrand()}"></td>
+            <td class="carTd" th:text="${car.getName()}"></td>
+            <td class="carTd" th:text="${car.getBodyType()}"></td>
+            <td class="carTd" th:text="${car.getYear()}"></td>
+            <td class="carTd" th:text="${car.getColor()}"></td>
+            <td class="carTd" th:text="${car.getMileage()}"></td>
+            <td class="carTd"><button class="btn btn-primary" type="submit">Wybierz</button></td>
 
         </tr>
         </tbody>
     </table>
+</div>
 </body>
 </html>
