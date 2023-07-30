@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RentCar</title>
+  <title>BOA Rent</title>
   <link rel="stylesheet" href="/CSS/mainMenu.css">
 </head>
 <body>
-<h1>RentCar</h1>
+<header>
+</header>
+<nav>
+</nav>
+<div class="background-image">
+  <main>
+    <h1 class="welcome-text">Witaj w BOA Rent!</h1>
+    <div class="form-container">
+      <h2>Wypełnij Formularz</h2>
+      <form id="rentForm" action="/weather" method="post">
+        <label for="branch">Oddział:</label><br>
+        <select id="branch" name="branch">
+          <option value="Warszawa">Warszawa</option>
+          <option value="Łódź">Łódź</option>
+          <option value="Poznań">Poznań</option>
+          <option value="Wrocław">Wrocław</option>
+          <option value="Gdańsk">Gdańsk</option>
+          <option value="Katowice">Katowice</option>
+          <option value="Bytom">Bytom</option>
+        </select><br>
+        <label for="rental_start">Data rozpoczęcia wynajmu:</label><br>
+        <input type="date" id="rental_start" name="rental_start"><br>
+        <label for="rental_end">Data zakończenia wynajmu:</label><br>
+        <input type="date" id="rental_end" name="rental_end"><br>
+        <input type="submit" value="Dalej">
+      </form>
+    </div>
+  </main>
+</div>
+<footer>
+  jendfjsckmdsc
+</footer>
 </body>
 </html>
-

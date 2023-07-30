@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather API</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>Prognoza pogody</h1>
+<div id="weatherResults">
+</div>
+
+<script>
+  $(document).ready(function(){
+    const city = new URLSearchParams(window.location.search).get("branch");
+    alert("The variable named city has value:  " + city);
+    fetch(`/weather?branch=${city}`)
+            .then(response => response.json())
+            .then(data => {
+              const html = `<h2>Pogoda dla miasta ${data.name}, ${data.country}</h2>
+                    <p>Temperatura: ${data.temp_c}℃</p>
+                    <p>Pogoda: ${data.condition}</p>`;
+              $('#weatherResults').html(html);
+            })
+            .catch(err => console.log(err));
+  });
+</script>
+</body>
+</html>
