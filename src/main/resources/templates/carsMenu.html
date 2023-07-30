@@ -21,7 +21,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="car:${cars}">
+        <tr th:each="car:${cars}" class="carTr">
             <td><img src="image/PlusAudi.jpg" class="car_image"></td>
             <td class="carTd" th:text="${car.getBrand()}"></td>
             <td class="carTd" th:text="${car.getName()}"></td>
