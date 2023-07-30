@@ -25,6 +25,10 @@ public class User {
     private String email;
     @ManyToOne(fetch = FetchType.LAZY)
     private Branch branch;
+    /*
     //private long addressId;
     //private String role;
+    */
+
+
 }
